@@ -148,7 +148,7 @@ input, select, textarea {
 	}
 
 		a:hover {
-			color: #255535 !important;
+			color: #5C9C6C !important;
 			border-bottom-color: transparent;
 		}
 
@@ -463,8 +463,8 @@ input, select, textarea {
 		input[type="url"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #255535;
-			box-shadow: 0 0 0 1px #255535;
+			border-color: #5C9C6C;
+			box-shadow: 0 0 0 1px #5C9C6C;
 		}
 
 	select {
@@ -574,8 +574,8 @@ input, select, textarea {
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #255535;
-			box-shadow: 0 0 0 1px #255535;
+			border-color: #5C9C6C;
+			box-shadow: 0 0 0 1px #5C9C6C;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -1062,7 +1062,7 @@ input, select, textarea {
 				-webkit-transition: opacity 0.2s ease;
 				-ms-transition: opacity 0.2s ease;
 				transition: opacity 0.2s ease;
-				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='112px' height='96px' viewBox='0 0 112 96' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %23255535%3B stroke-width: 4px %7D%3C/style%3E%3Cline x1='0' y1='46' x2='112' y2='46' /%3E%3Cline x1='24' y1='22' x2='0' y2='46' /%3E%3Cline x1='24' y1='70' x2='0' y2='46' /%3E%3C/svg%3E");
+				background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='112px' height='96px' viewBox='0 0 112 96' zoomAndPan='disable'%3E%3Cstyle%3Eline %7B stroke: %235C9C6C%3B stroke-width: 4px %7D%3C/style%3E%3Cline x1='0' y1='46' x2='112' y2='46' /%3E%3Cline x1='24' y1='22' x2='0' y2='46' /%3E%3Cline x1='24' y1='70' x2='0' y2='46' /%3E%3C/svg%3E");
 				background-position: center;
 				background-repeat: no-repeat;
 				background-size: contain;
@@ -1134,8 +1134,8 @@ input, select, textarea {
 		button.active,
 		.button:hover,
 		.button.active {
-			box-shadow: inset 0 0 0 1px #255535;
-			color: #255535 !important;
+			box-shadow: inset 0 0 0 1px #5C9C6C;
+			color: #5C9C6C !important;
 		}
 
 		input[type="submit"]:active, input[type="submit"].active,
@@ -1165,7 +1165,7 @@ input, select, textarea {
 			input[type="button"].primary:hover,
 			button.primary:hover,
 			.button.primary:hover {
-				background-color: #255535;
+				background-color: #5C9C6C;
 			}
 
 			input[type="submit"].primary:active,
