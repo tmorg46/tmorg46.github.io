@@ -152,6 +152,11 @@ input, select, textarea {
 			border-bottom-color: transparent;
 		}
 
+		a yeet:hover {
+			color: #e32020 !important;
+			border-bottom-color: transparent;
+		}
+
 	strong, b {
 		color: #555;
 		font-weight: 500;
