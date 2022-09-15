@@ -152,8 +152,18 @@ input, select, textarea {
 			border-bottom-color: transparent;
 		}
 
+	yeet {
+		-moz-transition: color 0.2s ease, border-bottom-color 0.2s ease;
+		-webkit-transition: color 0.2s ease, border-bottom-color 0.2s ease;
+		-ms-transition: color 0.2s ease, border-bottom-color 0.2s ease;
+		transition: color 0.2s ease, border-bottom-color 0.2s ease;
+		text-decoration: none;
+		border-bottom: dotted 1px;
+		color: inherit;
+	}
+
 		yeet:hover {
-			color: #e32020 !important;
+			color: #5C9C6C !important;
 			border-bottom-color: transparent;
 		}
 
