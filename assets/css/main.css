@@ -186,7 +186,7 @@ input, select, textarea {
 		font-weight: 700;
 		line-height: 1.5;
 		margin: 0 0 1em 0;
-		text-transform: small-caps;
+		text-transform: uppercase;
 		letter-spacing: 0.25em;
 	}
 
@@ -326,9 +326,9 @@ input, select, textarea {
 
 		header p {
 			font-size: 0.9em;
-			letter-spacing: 0.25em;
+			/* letter-spacing: 0.25em; */
 			margin-bottom: 0;
-			text-transform: uppercase;
+			/* text-transform: uppercase; */
 		}
 
 		@media screen and (max-width: 736px) {
