@@ -163,7 +163,7 @@ input, select, textarea {
 	}
 
 		a yeet:hover {
-			color: #5C9C6C !important;
+			color: #fff !important;
 			border-bottom-color: transparent;
 		}
 
@@ -186,8 +186,7 @@ input, select, textarea {
 		font-weight: 700;
 		line-height: 1.5;
 		margin: 0 0 1em 0;
-		text-transform: uppercase;
-		letter-spacing: 0.25em;
+		/* text-transform: uppercase; */
 	}
 
 		h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -196,7 +195,7 @@ input, select, textarea {
 		}
 
 	h1 {
-		font-size: 2em;
+		font-size: 3em;
 	}
 
 	h2 {
