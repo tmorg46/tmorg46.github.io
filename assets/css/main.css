@@ -661,7 +661,7 @@ input, select, textarea {
 			font-style: normal;
 			font-variant: normal;
 			text-rendering: auto;
-			line-height: 1;
+			line-height: 2;
 			text-transform: none !important;
 			font-family: 'Font Awesome 5 Free';
 			font-weight: 400;
