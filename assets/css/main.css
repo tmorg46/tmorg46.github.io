@@ -152,7 +152,7 @@ input, select, textarea {
 			border-bottom-color: transparent;
 		}
 
-	a yeet {
+	yeet a {
 		-moz-transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		-webkit-transition: color 0.2s ease, border-bottom-color 0.2s ease;
 		-ms-transition: color 0.2s ease, border-bottom-color 0.2s ease;
@@ -162,7 +162,7 @@ input, select, textarea {
 		color: inherit;
 	}
 
-		a yeet:hover {
+		yeet a:hover {
 			color: #fff !important;
 			border-bottom-color: transparent;
 		}
