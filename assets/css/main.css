@@ -755,6 +755,11 @@ input, select, textarea {
 			padding-left: 0.5em;
 		}
 
+		ul li yeet:hover {
+			color: #e02626 !important;
+			border-bottom-color: transparent;
+		}
+
 		ul.alt {
 			list-style: none;
 			padding-left: 0;
