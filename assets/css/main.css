@@ -163,7 +163,7 @@ input, select, textarea {
 	}
 
 		yeet a:hover {
-			color: #fff !important;
+			color: #da3838 !important;
 			border-bottom-color: transparent;
 		}
 
@@ -756,7 +756,7 @@ input, select, textarea {
 		}
 
 		ul li yeet:hover {
-			color: #e02626 !important;
+			color: #37a257 !important;
 			border-bottom-color: transparent;
 		}
 
