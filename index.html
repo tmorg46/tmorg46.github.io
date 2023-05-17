@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<!--
+ - File              : index.html
+ - Author            : Marcos Horro <marcos.horro@udc.gal>
+ - Last Modified Date: Mar 18 Set 2018 15:46:32 CEST
+
+ - Forked-Author     : Eric Chantland
+ - Last Modified Date: July 7/11/2022 
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Personal Page of Eric Chantland">
+    <meta name="author" content="Marcos Horro marcos.horro@udc.gal, later webpage edit inspiration from Sari Saba-Sadiya, final webpage edits by Eric Chantland">
+
+    <title>Eric Chantland</title>
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/custom.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <!-- header -->
+    <header>
+      <!-- Fixed navbar -->
+      <nav class="navbar navbar-expand-md fixed-top bg-dark bg-udc">
+        <div class="container">
+		  <!--
+          <a class="navbar-brand" href="https://www.udc.gal/">
+            <img src="img/udc.png" width="200" height="30" alt="UDC">
+          </a>
+          -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i></button>
+    		  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+			  <li class="nav-item">
+
+				<!--
+                <a class="nav-link" href="#projects">Projects<span class="sr-only">(current)</span></a>
+                -->
+                <button type="button" class="navbutton" onclick="onClickFunction(document.getElementById('projects').id)">
+                <a class="nav-link">Projects</a>
+                </button>
+              </li>
+              <li class="nav-item">
+        <!--
+              <a class="nav-link" href="#Academic">Publications</a>
+              -->
+              <button type="button" class="navbutton" onclick="onClickFunction(document.getElementById('Academic').id)">
+                <a class="nav-link">Publications</a>
+                </button>
+              </li>
+              <li class="nav-item">
+				<!--
+                <a class="nav-link" href="#teach">Teaching</a>
+                -->
+                <button type="button" class="navbutton" onclick="onClickFunction(document.getElementById('teach').id)">
+                <a class="nav-link">Teaching</a>
+                </button>
+              </li>
+              <li class="nav-item">
+				<!--
+				<a class="nav-link" href="#education">Education, Experience, and Awards</a>
+				-->
+			    <button type="button" class="navbutton" onclick="onClickFunction(document.getElementById('education').id)">
+                <a class="nav-link">Education, Experience, and Certifications</a>
+                </button>               
+            </ul>
+          </div>
+          <!--
+          <a class="navbar-brand" href="http://gac.udc.es/inicio.html">
+    			    <img src="img/gacw.png" width="162" height="30" alt="GAC">
+          </a>
+          -->
+        </div>
+    	</nav>
+    	<script>
+		function onClickFunction(ID) {
+		  var el_list = ["Academic", "projects", "teach", "education"];
+		  el_list.forEach(el => {
+			document.getElementById(el).style.display = "none";
+		  });
+		  document.getElementById(ID).style.display = "block";
+		}
+		</script>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="container">
+    <div class="row">
+      <div class="col-md-4 mx-auto d-block">
+        <div class="row mt-5 mx-auto d-block text-center">
+          <img src="img/profile.png" class="image-reduced rounded-circle mb-3" alt="Profile picture">
+          <h4>Eric C. M. Chantland</h4>
+
+          <p class="lead">Masters in Cognitive Psychology</p>
+          <div class = "University"> Michigan State University </div> Department of Psychology <br><a
+          href="https://psychology.msu.edu/programs/cognition-and-cognitive-neuroscience/index.html" >Cognition & Cognitive Neuroscience</a></p>
+        </div>
+        <hr>
+        <div class="row mx-auto d-block">
+          <p class="lead text-center"><a href="mailto:ericchantland@gmail.com"><i class="far fa-envelope fa-lg"></i></a> ericchantland@gmail.com</p>
+          <ul class="text-center social-icons no-padding-start">
+            <!-- original list, removed because I prefer the links to have color -->
+              <!-- <li><a class="researchgate" href="https://www.researchgate.net/profile/Eric-Chantland-2" title="ResearchGate">ResearchGate</a></li>
+              <li><a class="github" href="https://github.com/Chantland" title="Github">Git</a></li>
+              <li><a class="linkedin" href="https://www.linkedin.com/in/eric-chantland/" title="Linkedin">LinkedIn</a></li> -->
+              <li><a href="https://github.com/Chantland" title="Github" target="_blank" ><i class="fab fa-github fa-lg"></i></a></li>
+              <li><a href="https://www.researchgate.net/profile/Eric-Chantland-2" title="ResearchGate" target="_blank"><i class="fab fa-researchgate fa-lg "></i></a></li>
+              <li><a href="https://www.linkedin.com/in/eric-chantland/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin fa-lg "></i></a></li>
+              <!--
+              <li><a class="twitter" href="https://twitter.com/markoshorro" title="Twitter">Twitter</a></li>
+              <li><a class="instagram" href="https://www.instagram.com/markoshorro/" title="Instagram">Instagram</a></li>
+              <li><a class="flickr" href="https://www.flickr.com/photos/markos-design/" title="Flickr">Flickr</a></li>
+              -->
+          </ul>
+
+          <hr>
+          <p class="text-center font-weight-light">
+          <i class="far fa-user-circle"></i> <a href="img/Resume 2022.pdf" alt="Resume" target="_blank">Download Resume</a><br>
+          <hr>
+
+          <p class="text-monospace text-center">
+          Saint Louis, MO, United States<br>
+
+          </p>
+          <!--
+          <a href="https://stackoverflow.com/users/2856041/horro">
+          <img class="separator" src="https://stackoverflow.com/users/flair/2856041.png" width="208" height="58" alt="profile for horro at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for horro at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+          </a>
+          -->
+          <hr>
+          <div class= "d-none d-md-block">
+            <a class="twitter-timeline" href="https://twitter.com/EricChantland?ref_src=twsrc%5Etfw" data-tweet-limit="3">Tweets by EricChantland</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+          </div>
+        </div>
+      </div>
+
+
+      <!--- Eric Hello--->
+      <div class="col-md-8">
+        <section id="intro" class="mt-5">
+          <h3 class="display-5">/~Chantland/ index</h3>
+          <p>
+          I received my masters in cognitive psychology where I designed and programmed experiments probing attention, perception, motivation, and reward processing. 
+          I am looking toward adapting my skill set into becoming more technically focused.
+          </p>
+          <!-- Although I enjoyed the research, the programming drove me more and thus I began looking into the computer engineering field. -->
+          <p>
+          I mostly spend my free time writing, gaming, or collecting dice. 
+          </p>
+        </section>
+
+
+
+      
+
+
+
+        <section id="projects" class="mt-5">
+          <h3 class="display-5">Projects</h3><hr>
+
+          <div class="row">
+            <div class="col-4">
+              <div class="list-group list-group-flush" id="myList" role="tablist">
+                <a class="list-group-item list-group-item-action ec-list-tab active" data-toggle="list" href="#eHRAFScraper" role="tab">eHRAF Scraper</a>
+                <a class="list-group-item list-group-item-action ec-list-tab" data-toggle="list" href="#API-Dice" role="tab">FastAPI Dice</a>
+                <a class="list-group-item list-group-item-action ec-list-tab" data-toggle="list" href="#DiceMe" role="tab">Dice Me</a>
+                <a class="list-group-item list-group-item-action ec-list-tab" data-toggle="list" href="#EEGExtract" role="tab">EEGExtract</a>
+                <a class="list-group-item list-group-item-action ec-list-tab" data-toggle="list" href="#ChoiceAnalysis" role="tab">Choice Analysis</a>
+              </div>
+            </div>
+            <div class="col-8">
+              <div class="tab-content">
+                <div class="tab-pane fade show active" id="eHRAFScraper" role="tabpanel"><a href="https://github.com/Chantland/eHRAF_Scraper" target='_blank'>eHRAF_Scraper </a><span class="badge project-badge-python ">Python</span> <br>
+                  Autonomous Scraper GUI for Yale's eHRAF website database. Allows easy extraction and saving of document files based on your specified query. </div>
+                <div class="tab-pane fade " id="API-Dice" role="tabpanel"><a href="https://github.com/Chantland/FastAPI-Dice-APP" target='_blank'> FastAPI-Dice-APP </a><span class="badge project-badge-python">Python</span><span class="badge project-badge-fastapi">FastAPI</span><span class="badge project-badge-sqlite">SQLite</span><span class="badge project-badge-html">HTML</span><br>
+                  Integrating an API using the <a href="https://github.com/Chantland/Dice_Me" target='_blank'> Dice_Me </a> project. Uses a relational database (SQLight), API (FastAPI), Python, JavaScript, CSS, and HTML. </div>
+                <div class="tab-pane fade " id="DiceMe" role="tabpanel"> <a href="https://github.com/Chantland/Dice_Me" target='_blank'> Dice_Me </a><span class="badge project-badge-python">Python</span> <br>
+                  Convert image to a dice mosaic using scikit-learn to determine optimal feature preservation. Includes optional arguments for desired output dice.</div>
+                <div class="tab-pane fade " id="EEGExtract" role="tabpanel"><a href="https://github.com/Chantland/EEGExtract" target='_blank'>EEGExtract </a><span class="badge project-badge-python ">Python</span> <br>
+                  A python library for extracting features from Electroencephalography (EEG) data. Actively maintained and used by several researchers worldwide.</div>
+                <div class="tab-pane fade " id="ChoiceAnalysis" role="tabpanel"><a href="https://github.com/Chantland/CVT_Logistic_Analysis" target='_blank'>CVT_Logistic_Analysis </a><span class="badge project-badge-matlab ">MATLAB</span> <br>
+                  Matlab library implementing per-subject binary logistical regression analysis.</div>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            $('#myList a').on('click', function (e) {
+              e.preventDefault()
+              $(this).tab('show')
+            })
+          </script>
+        </section>
+
+
+
+
+        <section id="Academic" class="mt-5">
+          <h3 class="display-5">Selected Publications</h3><hr>
+        
+          <div class="row myPub">
+            <div class="col-md-8">
+              <h5>Unsupervised EEG Artifact Detection and Correction</h5>
+              <p><a class="venue" target="_blank">In Frontiers in Digital Health, Special issue on Machine Learning in Clinical Decision-Making. Volume 2</a>, 2021<br/>
+                  S. Saba-Sadiya and E. Chantland and T. Alhanai and T. Liu and M. Ghassemi</p>
+              [<a href="https://www.frontiersin.org/articles/10.3389/fdgth.2020.608920/full" target='_blank'>pdf</a>] [<a href="https://www.frontiersin.org/articles/10.3389/fdgth.2020.608920/bibTex" target='_blank'>bib</a>] [<a href="https://github.com/Chantland/EEGExtract" target='_blank'>code</a>]
+            </div>
+            <div class="col-md-4"><img class="img-fluid rounded mb-3 mb-md-0" src="img/frontiers2020.png" alt="Channel outlier detection"></div>            
+          </div>
+          <hr>
+        
+          <div class="row myPub">
+            <div class="col-md-8">
+              <h5>Value-Based Attention Capture: Differential Effects of Loss and Gain Contingencies</h5>
+              <p><a class="venue" target="_blank">In Journal of Vision,  Volume 20 Issue 5</a>, 2020<br/>
+                  M. W. Becker and S. Hemsteger and E. Chantland and T. Liu</p>
+              [<a href="https://jov.arvojournals.org/article.aspx?articleid=2766101" target='_blank'>pdf</a>] [<a href="https://www.researchgate.net/publication/341338316_Value-based_attention_capture_Differential_effects_of_loss_and_gain_contingencies/citation/download" target='_blank'>bib</a>]
+            </div>
+            <div class="col-md-4"><img class="img-fluid rounded mb-3 mb-md-0" src="img/vision2020.png" alt="Accuracy between groups"></div>            
+          </div>
+          <hr>
+        </section>      
+
+
+        <section id="teach" class="mt-5">
+          <h3 class="display-5">Teaching</h3><hr>
+          <ul class="timelinelist">
+            <li><b>PSY 395</b>: Research Design and Measurement in Psychological Research (Lab Lecturer/Proctor, Teaching Assistant) <span class="badge badge-secondary">Fall 2018, Spring 2021</span></li>
+            <li><b>PSY 101</b>: Introductory Psychology (Teaching Assistant) <span class="badge badge-secondary">Spring 2019, Fall 2020, Fall 2021</span></li>
+            <li><b>PSY 295</b>: Data Analysis in Psychological Research (Teaching Assistant) <span class="badge badge-secondary"> Fall 2019</span></li>
+            <li><b>PSY 235</b>: Social Psychology (Teaching Assistant) <span class="badge badge-secondary"> Spring 2020</span></li>
+            <li><b>PSY 342</b>: Stereotypes, Prejudice, and Discrimination (Teaching Assistant) <span class="badge badge-secondary"> Spring 2020</span></li>
+            <li><b>PSY 200</b>: Cognitive Psychology (Teaching Assistant) <span class="badge badge-secondary"> Spring 2022</span></li>
+          </ul>
+        </section>
+
+        <section id="education" class="mt-5">
+          <h3 class="display-5">Education, Experience, and Certification</h3>
+          <hr>
+          <ul class="timeline">
+
+            <li class="timeline-inverted">
+              <div class="timeline-badge success"><i class="fas fa-certificate"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Natural Language Processing</h4>
+                  <h5 class="timeline-subtitle">DeepLearning.AI - Coursera</h5>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> April 2023 [<a href="https://coursera.org/share/00fd365c68716562983f78b9de2190a8" title="Natural Language Processing Specialization" target="_blank" >Certificate</a>]</small></p>
+                  <ul class="timelinelist">
+                    <li><h6 class="timeline-body">Classification and Vector Spaces [<a href="https://coursera.org/share/e783a444d2cc1a095a2434a088a54192" title="NLP Vector Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Probabilistic Models [<a href="https://coursera.org/share/1a24aed7e1849ba11c07d7587d518802" title="NLP Probilistic Models Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Sequence Models [<a href="https://coursera.org/share/e604ebf3638c412ca183044a68839a1c" title="NLP Sequence Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Attention Models [<a href="https://coursera.org/share/b852f5e76bdc020828c7e7bb2ac524af" title="Responsive Design Certificate" target="_blank" >Certificate</a>]</h6></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+
+            <li class="timeline">
+              <div class="timeline-badge primary"><i class="fas fa-briefcase"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Statistical Data Analyst II</h4>
+                  <h5 class="timeline-subtitle">Washington University of Saint Louis</h5>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Oct 2022 - present</small></p>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline-inverted">
+              <div class="timeline-badge success"><i class="fas fa-certificate"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title"> Java Programming and Software Engineering Fundamentals</h4>
+                  <h5 class="timeline-subtitle">Duke - Coursera</h5>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Ongoing </small></p>
+                  <ul class="timelinelist">
+                    <li><h6 class="timeline-body">Programming Foundations with JavaScript, HTML and CSS [<a href="https://coursera.org/share/0d4b61f69038f819d36c9a305e73c216" title="HTML-CSS-Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Java Programming: Solving Problems with Software [<a href="https://coursera.org/share/ff26523e35ac558868cc5f556b9685c6" title="Java-problems-Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Java Programming: Arrays, Lists, and Structured Data [<a href="https://coursera.org/share/6cded9ff7c7aba2cbff2a49d7f1a91ce" title="Java-Arrays-Structured-Data" target="_blank" >Certificate</a>]</h6></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline-inverted">
+              <div class="timeline-badge success"><i class="fas fa-certificate"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Web Design for Everybody: Basics of Web Development & Coding Specialization</h4>
+                  <h5 class="timeline-subtitle">University of Michigan - Coursera</h5>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> August 2022 [<a href="https://coursera.org/share/0fcbd27a327562e270c916ac3c984b21" title="Web Specialization" target="_blank" >Certificate</a>]
+                    [<a href="https://www.thechantland.com/Coursera-Web-Design/Projects-and-Assignments/Capstone/index.html" title="Capstone Website" target="_blank" >Capstone Website</a>]</small></p>
+                  <ul class="timelinelist">
+                    <li><h6 class="timeline-body">Introduction to HTML5 [<a href="https://coursera.org/share/1f31e46f889e80d1308e88fa7fb4765e" title="HTML-Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Introduction to CSS3 [<a href="https://coursera.org/share/2597122c073ff124d3ad8922d1835c39" title="CSS3-Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Interactivity with JavaScript [<a href="https://coursera.org/share/4183c1d77c02d7181555f6d35f8eda13" title="Javascript-Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Advanced Styling and Responsive Design [<a href="https://www.coursera.org/account/accomplishments/verify/28N7MVEUYMFP" title="Responsive-Design-Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Web Design for Everybody Capstone [<a href="https://coursera.org/share/c1bc6cfb94c4eaa7fba2c7e4e2f444f5" title="web Design capstone Certificate" target="_blank" >Certificate</a>]
+                      [<a href="https://www.thechantland.com/Coursera-Web-Design/Projects-and-Assignments/Capstone/index.html" title="Capstone Website" target="_blank" >Capstone Website</a>]</h6></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline-inverted">
+              <div class="timeline-badge success"><i class="fas fa-certificate"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Javascript Algorithms and Data Structures</h4>
+                  <h5 class="timeline-subtitle">FreeCodeCamp</h5>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> July 2022 
+                  [<a href="https://www.freecodecamp.org/certification/Eric_Chantland/javascript-algorithms-and-data-structures" title="Javascript-Algorithms-Certificate" target="_blank" >Certificate</a>]</small></p>
+                </div>
+              </div>
+            </li>
+
+
+            <li class="timeline-inverted">
+              <div class="timeline-badge success"><i class="fas fa-certificate"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Python for Everybody Specialization</h4>
+                  <h5 class="timeline-subtitle">University of Michigan - Coursera</h5>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> June 2022 [<a href="https://coursera.org/share/b76edba2220cc9d2fd616207edb07f75" title="Python Specialization" target="_blank" >Certificate</a>]</small></p>
+                  <ul class="timelinelist">
+                    <li><h6 class="timeline-body">Programming for Everybody [<a href="https://coursera.org/share/7fe804e2d8cb0cf8c2bd56b689d47be7" title="Python-beginning-Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Python Data Structures [<a href="https://coursera.org/share/467940f7c82cd00bc0cd8d8bf6c277b5" title="Python-data-Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Using Python to Access Web Data [<a href="https://coursera.org/share/cd66b404683d0af467ea739b5b2eb76b" title="Python-Web-Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Using Databases with Python [<a href="https://coursera.org/share/d4ab0cabb912c54ec879406a627014a7" title="Python-Relational-Certificate" target="_blank" >Certificate</a>]</h6></li>
+                    <li><h6 class="timeline-body">Capstone: Retrieving, Processing, and Visualizing Data with Python specialization! [<a href="https://coursera.org/share/7cdc1c189ecbdb9c5eb48a0a3a2dc5c1" title="Python-Capstone-Certificate" target="_blank" >Certificate</a>]</h6></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
+
+                
+            <li class="timeline">
+              <div class="timeline-badge primary"><i class="fas fa-university"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Masters in Cognitive Psychology</h4>
+                  <h5 class="timeline-subtitle">Michigan State University</h5>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Aug 2018 - May 2022</small></p>
+                </div>
+                <div class="timeline-body">
+                  <p><i class="fas fa-file-signature"></i> GPA: 3.93</p>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline-inverted">
+              <div class="timeline-badge success"><i class="fas fa-certificate"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Data Analysis with Python</h4>
+                  <h5 class="timeline-subtitle">FreeCodeCamp</h5>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Apr 2022 
+                  [<a href="https://freecodecamp.org/certification/Eric_Chantland/data-analysis-with-python-v7" title="Python-Scientific-Certificate" target="_blank" >Certificate</a>] 
+                  [<a href="https://github.com/Chantland/FreeCodeCamp_Assignments" title="Python-Scientific-Github" target="_blank" >Github</a>]</small></p>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline-inverted">
+              <div class="timeline-badge success"><i class="fas fa-certificate"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Scientific Computing with Python</h4>
+                  <h5 class="timeline-subtitle">FreeCodeCamp</h5>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Feb 2022 
+                  [<a href="https://freecodecamp.org/certification/Eric_Chantland/scientific-computing-with-python-v7" title="Python-Scientific-Certificate" target="_blank" >Certificate</a>] 
+                  [<a href="https://github.com/Chantland/FreeCodeCamp_Assignments" title="Python-Scientific-Github" target="_blank" >Github</a>]</small></p>
+                </div>
+              </div>
+            </li>
+            
+            <li class="timeline">
+              <div class="timeline-badge warning"><i class="fas fa-briefcase"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">Research Manager</h4>
+                  <h5 class="timeline-subtitle"> Neuroimaging of Perception and Attention Lab</h5>
+                  <h6 class="timeline-subtitle">Principle Investigator: Taosheng Liu</h6>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Aug 2017 - Aug 2018</small></p>
+                  <h5 class="timeline-subtitle"> Attention and Perception Lab</h5>
+                  <h6 class="timeline-subtitle">Principle Investigator: Mark Becker</h6>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Jan 2017 - Aug 2018</small></p>
+                </div>
+              </div>
+            </li>
+
+            <li class="timeline">
+              <div class="timeline-badge primary"><i class="fas fa-university"></i></div>
+              <div class="timeline-panel">
+                <div class="timeline-heading">
+                  <h4 class="timeline-title">BS Psychology</h4>
+                  <h5 class="timeline-subtitle">Michigan State University</h5>
+                  <p><small class="text-muted"><i class="fas fa-calendar-alt"></i> Aug 2014 - Dec 2016</small></p>
+                </div>
+                <div class="timeline-body">
+                  <p><i class="fas fa-file-signature"></i> GPA: 3.67</p>
+                </div>
+              </div>
+            </li>
+        </ul>
+        </section>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <!-- <div class="container">
+        <span class="text-muted"><img src="img/MSU-Wordmark-Black-80-pxls.gif"> College of Engineering, Michigan State University. </span>
+      </div> -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery-slim.min.js"><\/script>')</script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- <script src="js/bibtex.js"></script>
+<script type="text/javascript">
+ var init = function() {
+   bibtexify("#bibtex", "pubTable", {});
+ };
+ if (window.addEventListener) {
+   window.addEventListener('load', init, false);
+ } else if (window.attachEvent) {
+   window.attachEvent('onload', init);
+ }
+</script>
+<script>
+jQuery("#pubTable").on("click", "a", function(e) {
+  var $n = jQuery(this),
+      text = $n.text().toUpperCase();
+  if (text === "X") { return; }
+  try {
+    _gaq.push(['_trackEvent', "PublicationAction", text]);
+} catch(err){ }
+  if ($n.attr("href") !== "#") {
+    setTimeout(function() {
+      document.location.href = $n.attr("href");
+    }, 100);
+    return false;
+  }
+});
+</script> -->
+  </body>
+</html>
