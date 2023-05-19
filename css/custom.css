@@ -100,7 +100,7 @@ div.bibinfo pre { clear:both; }
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: "Inter";
+  font-family: "Inter" !important;
 }
 
 a {
