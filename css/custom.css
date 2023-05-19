@@ -105,6 +105,10 @@ a {
 		color: #e06666;
 		}
 
+bodylink {
+  text-decoration: underline;
+}
+
 yeet {
   color: #ff0000;
 }
