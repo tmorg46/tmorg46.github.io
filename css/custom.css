@@ -96,8 +96,26 @@ div.bibinfo pre { clear:both; }
 }
 
 a {
-  color: #00bdca;
+  color: #073767;
 }
+
+	a:hover {
+		color: #e06666;
+		}
+
+yeet {
+  color: #ff0000;
+}
+	yeet:hover {
+		color: #e06666;
+		}
+
+geet {
+  color: #333;
+}
+	geet:hover {
+		color: #e06666;
+		}
 
 /* Sticky footer styles
 -------------------------------------------------- */
