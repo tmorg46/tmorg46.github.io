@@ -5,6 +5,8 @@
  */
 /* bib-publication-list styles
 -------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css?family=Inter|Open+Sans");
+
 span.undefined { color:red; }
 .bibtable {width: auto 100%; height: auto scroll; margin: 0 auto; clear: both;}
 .bibchart { width: 100%; height: 100px; margin-bottom: 20px;}
@@ -77,8 +79,8 @@ div.bibinfo pre { clear:both; }
   background-color: #073767 !important;
 }
 
-.display-5{font-size:2rem;font-weight:600;line-height:1.2}
-.display-6{font-size:1.4rem;font-weight:300;line-height:1.2}
+.display-5{font-size:2rem;font-family:"Inter";font-weight:600;line-height:1.2}
+.display-6{font-size:1.4rem;font-family:"Inter";font-weight:300;line-height:1.2}
 .navbar-toggler {
   text-align: center;
 
