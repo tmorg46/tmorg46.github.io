@@ -103,6 +103,15 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Inter" !important;
 }
 
+h4 {
+	font-size: 1.9rem !important;
+	font-weight: 700 !important;
+}
+
+.lead {
+  font_family: "Inter" !important;
+}
+
 a {
   color: #073767;
 }
@@ -448,7 +457,7 @@ ul.timelinelist > li:before {
 .University{
   color:rgb(0, 0, 0);
   font-size: 20px;
-  
+  font-family: "Inter" !important;
 }
 
 .container {
