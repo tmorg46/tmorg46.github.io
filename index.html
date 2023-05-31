@@ -81,23 +81,12 @@
         </div>
         <div class="row mx-auto d-block">
           <ul class="text-center social-icons no-padding-start">
-            <!-- original list, removed because I prefer the links to have color -->
-              <!-- <li><a class="researchgate" href="https://www.researchgate.net/profile/Eric-Chantland-2" title="ResearchGate">ResearchGate</a></li>
-              <li><a class="github" href="https://github.com/Chantland" title="Github">Git</a></li>
-              <li><a class="linkedin" href="https://www.linkedin.com/in/eric-chantland/" title="Linkedin">LinkedIn</a></li> -->
 	      <li><a href="https://www.youtube.com/@TommysLabHours" title="YouTube" target="_blank"><yeet><i class="fab fa-youtube fa-3x"></i></yeet></a></li>
               <li><a href="https://github.com/tmorg46" title="Github" target="_blank" ><geet><i class="fab fa-github fa-3x"></i></geet></a></li>
               <li><a href="mailto:inquiries@tmorg.org" title="Envelope" target="_blank"><i class="far fa-envelope fa-3x"></i></a></li>
-              <!--
-              <li><a class="twitter" href="https://twitter.com/markoshorro" title="Twitter">Twitter</a></li>
-              <li><a class="instagram" href="https://www.instagram.com/markoshorro/" title="Instagram">Instagram</a></li>
-              <li><a class="flickr" href="https://www.flickr.com/photos/markos-design/" title="Flickr">Flickr</a></li>
               -->
           </ul>
 	  <!--
-          <a href="https://stackoverflow.com/users/2856041/horro">
-          <img class="separator" src="https://stackoverflow.com/users/flair/2856041.png" width="208" height="58" alt="profile for horro at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for horro at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
-          </a>
           -->
         </div>
       </div>
@@ -106,7 +95,7 @@
       <!--- Eric Hello--->
       <div class="col-md-8">
         <section id="intro" class="mt-5">
-          <h3 class="display-5">Hello!</h3>
+          <h3 class="display-5">Hello!</h3><hr>
           <p>
           I graduated from BYU with a BS of Economics in April 2023. I work as a pre-doc research assistant in the <a href="https://rll.byu.edu"><bodylink>Record Linking Lab</bodylink></a>, where I lead the Census Tree Team. 
           </p>
@@ -123,81 +112,12 @@
 
         <section id="research" class="mt-5">
           <h3 class="display-5">Research</h3><hr>
-
-          <div class="row">
-            <div class="col-4">
-              <div class="list-group list-group-flush" id="myList" role="tablist">
-                <a class="list-group-item list-group-item-action ec-list-tab active" data-toggle="list" href="#eHRAFScraper" role="tab">Longevity </a>
-                <a class="list-group-item list-group-item-action ec-list-tab" data-toggle="list" href="#API-Dice" role="tab">FastAPI Dice</a>
-                <a class="list-group-item list-group-item-action ec-list-tab" data-toggle="list" href="#DiceMe" role="tab">Dice Me</a>
-                <a class="list-group-item list-group-item-action ec-list-tab" data-toggle="list" href="#EEGExtract" role="tab">EEGExtract</a>
-                <a class="list-group-item list-group-item-action ec-list-tab" data-toggle="list" href="#ChoiceAnalysis" role="tab">Choice Analysis</a>
-              </div>
-            </div>
-            <div class="col-8">
-              <div class="tab-content">
-                <div class="tab-pane fade show active" id="eHRAFScraper" role="tabpanel"><a href="https://github.com/Chantland/eHRAF_Scraper" target='_blank'>eHRAF_Scraper </a><span class="badge project-badge-python ">Python</span> <br>
-                  Autonomous Scraper GUI for Yale's eHRAF website database. Allows easy extraction and saving of document files based on your specified query. </div>
-                <div class="tab-pane fade " id="API-Dice" role="tabpanel"><a href="https://github.com/Chantland/FastAPI-Dice-APP" target='_blank'> FastAPI-Dice-APP </a><span class="badge project-badge-python">Python</span><span class="badge project-badge-fastapi">FastAPI</span><span class="badge project-badge-sqlite">SQLite</span><span class="badge project-badge-html">HTML</span><br>
-                  Integrating an API using the <a href="https://github.com/Chantland/Dice_Me" target='_blank'> Dice_Me </a> project. Uses a relational database (SQLight), API (FastAPI), Python, JavaScript, CSS, and HTML. </div>
-                <div class="tab-pane fade " id="DiceMe" role="tabpanel"> <a href="https://github.com/Chantland/Dice_Me" target='_blank'> Dice_Me </a><span class="badge project-badge-python">Python</span> <br>
-                  Convert image to a dice mosaic using scikit-learn to determine optimal feature preservation. Includes optional arguments for desired output dice.</div>
-                <div class="tab-pane fade " id="EEGExtract" role="tabpanel"><a href="https://github.com/Chantland/EEGExtract" target='_blank'>EEGExtract </a><span class="badge project-badge-python ">Python</span> <br>
-                  A python library for extracting features from Electroencephalography (EEG) data. Actively maintained and used by several researchers worldwide.</div>
-                <div class="tab-pane fade " id="ChoiceAnalysis" role="tabpanel"><a href="https://github.com/Chantland/CVT_Logistic_Analysis" target='_blank'>CVT_Logistic_Analysis </a><span class="badge project-badge-matlab ">MATLAB</span> <br>
-                  Matlab library implementing per-subject binary logistical regression analysis.</div>
-              </div>
-            </div>
-          </div>
-
-          <script>
-            $('#myList a').on('click', function (e) {
-              e.preventDefault()
-              $(this).tab('show')
-            })
-          </script>
-        </section>
-
-
-
-
-        <section id="teaching" class="mt-5">
-          <h3 class="display-5">Teaching</h3><hr>
-        
-          <div class="row myPub">
-            <div class="col-md-8">
-              <h5>Unsupervised EEG Artifact Detection and Correction</h5>
-              <p><a class="venue" target="_blank">In Frontiers in Digital Health, Special issue on Machine Learning in Clinical Decision-Making. Volume 2</a>, 2021<br/>
-                  S. Saba-Sadiya and E. Chantland and T. Alhanai and T. Liu and M. Ghassemi</p>
-              [<a href="https://www.frontiersin.org/articles/10.3389/fdgth.2020.608920/full" target='_blank'>pdf</a>] [<a href="https://www.frontiersin.org/articles/10.3389/fdgth.2020.608920/bibTex" target='_blank'>bib</a>] [<a href="https://github.com/Chantland/EEGExtract" target='_blank'>code</a>]
-            </div>
-            <div class="col-md-4"><img class="img-fluid rounded mb-3 mb-md-0" src="img/frontiers2020.png" alt="Channel outlier detection"></div>            
-          </div>
-          <hr>
-        
-          <div class="row myPub">
-            <div class="col-md-8">
-              <h5>Value-Based Attention Capture: Differential Effects of Loss and Gain Contingencies</h5>
-              <p><a class="venue" target="_blank">In Journal of Vision,  Volume 20 Issue 5</a>, 2020<br/>
-                  M. W. Becker and S. Hemsteger and E. Chantland and T. Liu</p>
-              [<a href="https://jov.arvojournals.org/article.aspx?articleid=2766101" target='_blank'>pdf</a>] [<a href="https://www.researchgate.net/publication/341338316_Value-based_attention_capture_Differential_effects_of_loss_and_gain_contingencies/citation/download" target='_blank'>bib</a>]
-            </div>
-            <div class="col-md-4"><img class="img-fluid rounded mb-3 mb-md-0" src="img/vision2020.png" alt="Accuracy between groups"></div>            
-          </div>
-          <hr>
-        </section>      
-
-
-        <section id="code" class="mt-5">
-          <h3 class="display-5">Code</h3><hr>
-          <ul class="timelinelist">
-            <li><b>PSY 395</b>: Research Design and Measurement in Psychological Research (Lab Lecturer/Proctor, Teaching Assistant) <span class="badge badge-secondary">Fall 2018, Spring 2021</span></li>
-            <li><b>PSY 101</b>: Introductory Psychology (Teaching Assistant) <span class="badge badge-secondary">Spring 2019, Fall 2020, Fall 2021</span></li>
-            <li><b>PSY 295</b>: Data Analysis in Psychological Research (Teaching Assistant) <span class="badge badge-secondary"> Fall 2019</span></li>
-            <li><b>PSY 235</b>: Social Psychology (Teaching Assistant) <span class="badge badge-secondary"> Spring 2020</span></li>
-            <li><b>PSY 342</b>: Stereotypes, Prejudice, and Discrimination (Teaching Assistant) <span class="badge badge-secondary"> Spring 2020</span></li>
-            <li><b>PSY 200</b>: Cognitive Psychology (Teaching Assistant) <span class="badge badge-secondary"> Spring 2022</span></li>
-          </ul>
+           <p>
+          I graduated from BYU with a BS of Economics in April 2023. I work as a pre-doc research assistant in the <a href="https://rll.byu.edu"><bodylink>Record Linking Lab</bodylink></a>, where I lead the Census Tree Team. 
+          </p>
+	  <p>
+          My current research focuses on using historical records to answer economic questions. My main project at the moment is joint authorship with <a href="https://www.ariadnajou.com/"><bodylink>Ariadna Jou</bodylink></a> on a <a href="https://ariadnajou.github.io/website/AJou_JMP.pdf"><bodylink>paper</bodylink></a> about the effects of New Deal-era relief spending on longevity.
+          </p>
         </section>
 
     <footer class="footer">
