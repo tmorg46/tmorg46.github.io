@@ -49,12 +49,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h4 {
-	font-size: 1.9rem !important;
+	font-size: 2rem !important;
 	font-weight: 700 !important;
 }
 
+p {
+	font-family: "Open Sans" !important;
+	font-size: 1.25rem !important;
+	font-weight: 400 !important;
+}
+
 .lead {
-  font_family: "Inter" !important;
+  font-family: "Inter" !important;
 }
 
 a {
