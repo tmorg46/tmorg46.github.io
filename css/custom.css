@@ -94,6 +94,34 @@ geet {
   height: auto;
 }
 
+.University{
+  color:rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "Inter" !important;
+}
+
+.container {
+max-width:1540px;
+}
+
+.no-padding-start {
+  padding-inline-start: 0px; 
+}
+
+/* .no-disc {
+  list-style-type: none;
+} */
+
+
+#myList {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+.ec-list-tab.active {
+  background-color: rgb(40 80 124)!important;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
