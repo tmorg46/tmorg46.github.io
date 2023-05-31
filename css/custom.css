@@ -94,13 +94,14 @@ div.bibinfo pre { clear:both; }
   color: #fefef9;
 }
 .nav-link:hover{
-  color: #e06666;
+  color: #670737;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-family: "Inter" !important;
+  color: #073767 !important;
 }
 
 h4 {
@@ -117,7 +118,7 @@ a {
 }
 
 	a:hover {
-		color: #e06666;
+		color: #670737;
 		}
 
 bodylink {
@@ -128,14 +129,14 @@ yeet {
   color: #ff0000;
 }
 	yeet:hover {
-		color: #e06666;
+		color: #670737;
 		}
 
 geet {
   color: #333;
 }
 	geet:hover {
-		color: #e06666;
+		color: #670737;
 	 }
 
 /* Sticky footer styles
