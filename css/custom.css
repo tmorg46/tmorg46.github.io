@@ -71,11 +71,11 @@ p {
 }
 
 a {
-  color: #073767;
+  color: #e06666;
 }
 
 	a:hover {
-		color: #e06666;
+		color: #073767;
 		}
 
 bodylink {
@@ -86,14 +86,14 @@ yeet {
   color: #ff0000;
 }
 	yeet:hover {
-		color: #e06666;
+		color: #073767;
 		}
 
 geet {
   color: #333;
 }
 	geet:hover {
-		color: #e06666;
+		color: #073767;
 	 }
 
 .image-reduced {
