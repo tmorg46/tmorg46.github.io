@@ -97,7 +97,8 @@ geet {
 	 }
 
 .image-reduced {
-  max-width: 18rem;
+  max-width: 25rem;
+  width: 100%;
   height: auto;
 }
 
