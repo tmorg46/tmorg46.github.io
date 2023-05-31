@@ -4,7 +4,7 @@
  */
 /* font styles
 -------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css?family=Inter:700|Open+Sans:400,600");
+@import url("https://fonts.googleapis.com/css?family=Inter:700,500|Open+Sans:400,500,600");
 
 /* Custom styles
 -------------------------------------------------- */
@@ -20,22 +20,32 @@
 }
 
 .bg-tmorg {
-  background-color: #073767 !important;
+  background-color: #fefef9 !important;
 }
+
+body {
+  background-color: #fefef9 !important;
+}
+
+.navbar-collapse {
+  flex-grow: 0 !important;
+}
+
 
 .display-5{font-size:3.2em;font-family:"Inter";font-weight:800;line-height:1.5}
 .display-6{font-size:1.4rem;font-family:"Inter";font-weight:300;line-height:1.2}
 .navbar-toggler {
   text-align: center;
-
 }
 
 .fa-bars {
-  color: #fefef9;
+  color: #073767;
 }
 
 .nav-link {
-  color: #fefef9;
+  color: #073767;
+  font-weight: 400;
+  font-family: "Open Sans";
 }
 .nav-link:hover{
   color: #e06666;
@@ -71,11 +81,11 @@ p {
 }
 
 a {
-  color: #e06666;
+  color: #073767;
 }
 
 	a:hover {
-		color: #073767;
+		color: #e06666;
 		}
 
 bodylink {
@@ -86,14 +96,14 @@ yeet {
   color: #ff0000;
 }
 	yeet:hover {
-		color: #073767;
+		color: #e06666;
 		}
 
 geet {
   color: #333;
 }
 	geet:hover {
-		color: #073767;
+		color: #e06666;
 	 }
 
 .image-reduced {
