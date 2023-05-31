@@ -89,6 +89,11 @@ geet {
 		color: #e06666;
 	 }
 
+.image-reduced {
+  max-width: 250px;
+  height: auto;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
