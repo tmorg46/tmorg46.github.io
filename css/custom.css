@@ -73,6 +73,14 @@ h4 {
   margin-bottom:2rem;
 }
 
+.yeehaw {
+  margin-right: 0px !important;
+}
+
+.yeet {
+  margin-left: 0px !important;
+}
+
 p {
 	font-family: "Open Sans" !important;
 	font-size: 1.25rem !important;
