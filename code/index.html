@@ -43,7 +43,7 @@
 		</li>    
 		<li class="nav-item">
 
-                <a class="nav-link" style="font-weight:700" href="/research">Research</a>
+                <a class="nav-link" href="/research">Research</a>
 
               </li>
               <li class="nav-item">
@@ -53,7 +53,7 @@
               </li>
               <li class="nav-item">
 				
-                <a class="nav-link" href="/code">Code</a>
+                <a class="nav-link" style="font-weight:700" href="/code">Code</a>
 
               </li>
               <li class="nav-item">
@@ -73,7 +73,7 @@
   <!-- Begin page content -->
     <main role="main" class="container">
 	    <div class="row mx-auto d-block text-center">
-	    <h3 class="display-5">Research</h3>
+	    <h3 class="display-5">Code</h3>
 	<hr>
       </div>
     <div class="row">
@@ -82,20 +82,23 @@
 
       <div class="col-md-10 mx-auto d-block yeet">
         <section id="home" class="mt-5">
-	 <h4 style="text-align: center">Working Papers</h4>
+	 <h4 style="text-align: center">Stata Commands</h4>
 		<br>
           <p>
-		  <b>The Effects of the Great Depression and New Deal on Longevity</b> - with <a href="https://www.ariadnajou.com/"><bodylink>Ariadna Jou</bodylink></a>
+	  <b><a href="https://econpapers.repec.org/software/bocbocode/s459186.htm"><bodylink>CHIMCHAR</bodylink></a>: Stata module to thoroughly clean string variables</b>
 	  </p>
 	  <p>
-          This study explores the effect of government relief spending on longevity by examining county-level variation in New Deal spending and linking people in the 1930 and 1940 censuses to their death dates as recorded on FamilySearch, a large public wiki-style family tree.
+          <i>chimchar</i> stands for CHanging IMpractical CHARacters. It removes characters from string variables that can impede functions like <i>destring</i> and <i>reclink</i>. You can choose to remove only special characters, remove both special characters and numeric characters, or remove all non-numeric characters altogether. If letters are not removed, special characters that are based on Latin letters are replaced with their closest ASCII (plain Latin) letter counterpart(s); for example, "Æ", "š" and "ĸ" would become "ae", "s", and "k", respectively.
           </p>
+	  <br>
 	  <p>
-          View the most recent draft <a href="https://ariadnajou.github.io/website/AJou_JMP.pdf"><bodylink>here</bodylink></a>.
+	  <b><a href="https://econpapers.repec.org/software/bocbocode/s459145.htm"><bodylink>SUPERCOMPRESS</bodylink></a>: Stata module to run compress on all datasets in a folder and its subfolders</b>
+	  </p>
+	  <p>
+          <i>supercompress</i> is a command designed for organizations that 1) work with very large datasets and 2) experience data constraints. It attempts to reduce the amount of memory used by your data by running Stata's native compress command on every Stata dataset it can find within a given folder and all of its subfolders.
           </p>
         </section>
       </div>
-	    <div class="col-md-1 mx-auto d-block yeet"></div>
 
     <footer class="footer">
       <!-- <div class="container">
