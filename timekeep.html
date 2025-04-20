@@ -47,65 +47,47 @@
     }
   </style>
 </head>
+
 <body>
   <h1>Sleep Tracker</h1>
-  <div id="mode">Current Mode: Go to Bed</div>
-  <button id="toggleBtn">Go to Bed</button>
-  <div id="log"></div>
-  <button style="margin-top:2rem; background-color:#2196F3" onclick="exportCSV()">Export to CSV</button>
+  <p id="time">Time: </p>
+  <button id="button" onclick="toggleMode()">Go to Bed</button>
 
   <script>
-    let mode = "Go to Bed";
-    let entries = JSON.parse(localStorage.getItem('sleepEntries')) || [];
+    let mode = "goToBed";
 
-    const modeText = document.getElementById("mode");
-    const button = document.getElementById("toggleBtn");
-    const log = document.getElementById("log");
+    // Function to submit to Google Sheets
+    function submitToGoogleSheet(action) {
+      const formData = new FormData();
+      formData.append("entry.834288742", action);  // Using the correct entry ID
 
-    function updateUI() {
-      modeText.textContent = `Current Mode: ${mode}`;
-      button.textContent = mode;
-      displayLog();
-    }
-
-    function toggleMode() {
-      const now = new Date();
-      entries.push({ mode, time: now.toISOString() });
-      localStorage.setItem('sleepEntries', JSON.stringify(entries));
-
-      mode = mode === "Go to Bed" ? "Get Up" : "Go to Bed";
-      updateUI();
-    }
-
-    function displayLog() {
-      if (entries.length === 0) {
-        log.innerHTML = '<p>No entries yet.</p>';
-        return;
-      }
-      let html = '<table><tr><th>Action</th><th>Time</th></tr>';
-      entries.forEach(entry => {
-        html += `<tr><td>${entry.mode}</td><td>${new Date(entry.time).toLocaleString()}</td></tr>`;
+      fetch("https://docs.google.com/forms/d/e/1FAIpQLScvzdx4Nb2k7lSQ4Wq29ITlTt1hK1tHGl23hj2Ief1Pr7mbaw/formResponse", {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
       });
-      html += '</table>';
-      log.innerHTML = html;
     }
 
-    function exportCSV() {
-      let csvContent = "data:text/csv;charset=utf-8,Action,Time\n" +
-        entries.map(e => `${e.mode},${new Date(e.time).toLocaleString()}`).join("\n");
-
-      const encodedUri = encodeURI(csvContent);
-      const link = document.createElement("a");
-      link.setAttribute("href", encodedUri);
-      link.setAttribute("download", "sleep_log.csv");
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+    // Function to toggle between "Go to Bed" and "Get Up"
+    function toggleMode() {
+      const action = mode === "goToBed" ? "Go to Bed" : "Get Up";
+      const time = new Date().toLocaleTimeString();
+      
+      // Submit action to Google Sheets
+      submitToGoogleSheet(action);
+      
+      // Toggle mode and update button text
+      if (mode === "goToBed") {
+        mode = "getUp";
+        document.getElementById("button").innerText = "I Got Up";
+      } else {
+        mode = "goToBed";
+        document.getElementById("button").innerText = "Go to Bed";
+      }
+      
+      // Update the time displayed
+      document.getElementById("time").innerText = "Time: " + time;
     }
-
-    button.addEventListener("click", toggleMode);
-
-    updateUI();
   </script>
 </body>
 </html>
