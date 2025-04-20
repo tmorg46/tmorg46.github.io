@@ -111,8 +111,12 @@
       timestamp = timeString;
       localStorage.setItem('timestamp', timestamp);
 
-      // Update the time displayed
-      document.getElementById("time").innerText = "Time of Last Button Press: " + timestamp;
+      // Update the time displayed with the appropriate message
+      if (mode === "getUp") {
+        document.getElementById("time").innerText = "Woke up at " + timestamp;
+      } else {
+        document.getElementById("time").innerText = "Went to bed at " + timestamp;
+      }
     }
 
     // On page load, set the mode and timestamp based on localStorage
@@ -123,8 +127,12 @@
       document.getElementById("button").innerText = "Go to Bed";
     }
 
-    // Display the timestamp if available
-    document.getElementById("time").innerText = "Time of Last Button Press: " + timestamp;
+    // Display the timestamp with the appropriate message on page load
+    if (mode === "getUp") {
+      document.getElementById("time").innerText = "Woke up at " + timestamp;
+    } else {
+      document.getElementById("time").innerText = "Went to bed at " + timestamp;
+    }
   </script>
 </body>
 </html>
