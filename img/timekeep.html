@@ -87,7 +87,7 @@
 
     // Function to toggle between "Go to Bed" and "Get Up" and switch themes
     function toggleMode() {
-      const action = mode === "goToBed" ? "Go to Bed" : "Get Up";
+      const action = mode === "goToBed" ? "Went to Bed" : "Got Up";
       const currentTime = new Date();
       const timeString = currentTime.toLocaleTimeString();
       
@@ -97,12 +97,12 @@
       // Toggle mode and update button text
       if (mode === "goToBed") {
         mode = "getUp";
-        document.getElementById("button").innerText = "I Got Up";
+        document.getElementById("button").innerText = "He's Getting Up";
         document.body.classList.add("dark-mode");  // Activate dark mode
         localStorage.setItem('mode', 'getUp');  // Save the mode to localStorage
       } else {
         mode = "goToBed";
-        document.getElementById("button").innerText = "Go to Bed";
+        document.getElementById("button").innerText = "He's Going to Bed";
         document.body.classList.remove("dark-mode");  // Switch to light mode
         localStorage.setItem('mode', 'goToBed');  // Save the mode to localStorage
       }
@@ -113,25 +113,25 @@
 
       // Update the time displayed with the appropriate message
       if (mode === "getUp") {
-        document.getElementById("time").innerText = "Woke up at " + timestamp;
+        document.getElementById("time").innerText = "He went to bed at " + timestamp;
       } else {
-        document.getElementById("time").innerText = "Went to bed at " + timestamp;
+        document.getElementById("time").innerText = "He got up at " + timestamp;
       }
     }
 
     // On page load, set the mode and timestamp based on localStorage
     if (mode === "getUp") {
       document.body.classList.add("dark-mode");
-      document.getElementById("button").innerText = "I Got Up";
+      document.getElementById("button").innerText = "He's Getting Up";
     } else {
-      document.getElementById("button").innerText = "Go to Bed";
+      document.getElementById("button").innerText = "He's Going to Bed";
     }
 
     // Display the timestamp with the appropriate message on page load
     if (mode === "getUp") {
-      document.getElementById("time").innerText = "Woke up at " + timestamp;
+      document.getElementById("time").innerText = "He went to bed at " + timestamp;
     } else {
-      document.getElementById("time").innerText = "Went to bed at " + timestamp;
+      document.getElementById("time").innerText = "He got up at " + timestamp;
     }
   </script>
 </body>
