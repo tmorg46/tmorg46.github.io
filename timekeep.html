@@ -70,7 +70,7 @@
   <button id="button" onclick="toggleMode()">Go to Bed</button>
 
   <script>
-    let mode = "goToBed";
+    let mode = localStorage.getItem('mode') || "goToBed"; // Get stored mode or default to "goToBed"
 
     // Function to submit to Google Sheets
     function submitToGoogleSheet(action) {
@@ -97,14 +97,24 @@
         mode = "getUp";
         document.getElementById("button").innerText = "I Got Up";
         document.body.classList.add("dark-mode");  // Activate dark mode
+        localStorage.setItem('mode', 'getUp');  // Save the mode to localStorage
       } else {
         mode = "goToBed";
         document.getElementById("button").innerText = "Go to Bed";
         document.body.classList.remove("dark-mode");  // Switch to light mode
+        localStorage.setItem('mode', 'goToBed');  // Save the mode to localStorage
       }
       
       // Update the time displayed
       document.getElementById("time").innerText = "Time: " + time;
+    }
+
+    // On page load, set the mode based on localStorage
+    if (mode === "getUp") {
+      document.body.classList.add("dark-mode");
+      document.getElementById("button").innerText = "I Got Up";
+    } else {
+      document.getElementById("button").innerText = "Go to Bed";
     }
   </script>
 </body>
