@@ -70,56 +70,50 @@
   <p id="time">Time of Last Button Press: </p>
 
   <script>
-    let mode = localStorage.getItem('mode') || "goToBed";  // Get stored mode or default to "goToBed"
-    let timestamp = localStorage.getItem('timestamp') || "";  // Get stored timestamp or default to empty
+  let mode = localStorage.getItem('mode') || "goToBed";
+  let timestamp = localStorage.getItem('timestamp') || "";
 
-    // Function to submit to Google Sheets
-    function submitToGoogleSheet(action) {
-      const formData = new FormData();
-      formData.append("entry.834288742", action);  // Using the correct entry ID
+  function submitToGoogleSheet(action) {
+    const formData = new FormData();
+    formData.append("entry.834288742", action);
 
-      fetch("https://docs.google.com/forms/d/e/1FAIpQLScvzdx4Nb2k7lSQ4Wq29ITlTt1hK1tHGl23hj2Ief1Pr7mbaw/formResponse", {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-      });
+    fetch("https://docs.google.com/forms/d/e/1FAIpQLScvzdx4Nb2k7lSQ4Wq29ITlTt1hK1tHGl23hj2Ief1Pr7mbaw/formResponse", {
+      method: "POST",
+      mode: "no-cors",
+      body: formData
+    });
+  }
+
+  function toggleMode() {
+    const action = mode === "goToBed" ? "Went to Bed" : "Got Up";
+    const currentTime = new Date();
+    const timeString = currentTime.toLocaleTimeString();
+
+    submitToGoogleSheet(action);
+
+    if (mode === "goToBed") {
+      mode = "getUp";
+      document.getElementById("button").innerText = "He's Getting Up";
+      document.body.classList.add("dark-mode");
+      localStorage.setItem('mode', 'getUp');
+    } else {
+      mode = "goToBed";
+      document.getElementById("button").innerText = "He's Going to Bed";
+      document.body.classList.remove("dark-mode");
+      localStorage.setItem('mode', 'goToBed');
     }
 
-    // Function to toggle between "Go to Bed" and "Get Up" and switch themes
-    function toggleMode() {
-      const action = mode === "goToBed" ? "Went to Bed" : "Got Up";
-      const currentTime = new Date();
-      const timeString = currentTime.toLocaleTimeString();
-      
-      // Submit action to Google Sheets
-      submitToGoogleSheet(action);
-      
-      // Toggle mode and update button text
-      if (mode === "goToBed") {
-        mode = "getUp";
-        document.getElementById("button").innerText = "He's Getting Up";
-        document.body.classList.add("dark-mode");  // Activate dark mode
-        localStorage.setItem('mode', 'getUp');  // Save the mode to localStorage
-      } else {
-        mode = "goToBed";
-        document.getElementById("button").innerText = "He's Going to Bed";
-        document.body.classList.remove("dark-mode");  // Switch to light mode
-        localStorage.setItem('mode', 'goToBed');  // Save the mode to localStorage
-      }
+    timestamp = timeString;
+    localStorage.setItem('timestamp', timestamp);
 
-      // Save timestamp to localStorage
-      timestamp = timeString;
-      localStorage.setItem('timestamp', timestamp);
-
-      // Update the time displayed with the appropriate message
-      if (mode === "getUp") {
-        document.getElementById("time").innerText = "He went to bed at " + timestamp;
-      } else {
-        document.getElementById("time").innerText = "He got up at " + timestamp;
-      }
+    if (mode === "getUp") {
+      document.getElementById("time").innerText = "He went to bed at " + timestamp;
+    } else {
+      document.getElementById("time").innerText = "He got up at " + timestamp;
     }
+  }
 
-    // On page load, set the mode and timestamp based on localStorage
+  function setInitialState() {
     if (mode === "getUp") {
       document.body.classList.add("dark-mode");
       document.getElementById("button").innerText = "He's Getting Up";
@@ -127,12 +121,29 @@
       document.getElementById("button").innerText = "He's Going to Bed";
     }
 
-    // Display the timestamp with the appropriate message on page load
     if (mode === "getUp") {
       document.getElementById("time").innerText = "He went to bed at " + timestamp;
     } else {
       document.getElementById("time").innerText = "He got up at " + timestamp;
     }
-  </script>
+  }
+
+  // Auto-trigger from URL param
+  function checkURLParams() {
+    const params = new URLSearchParams(window.location.search);
+    const action = params.get("action");
+    if (action === "bed" && mode !== "getUp") {
+      toggleMode();
+    } else if (action === "up" && mode !== "goToBed") {
+      toggleMode();
+    }
+  }
+
+  // Initialize on load
+  window.onload = function () {
+    setInitialState();
+    checkURLParams();
+  }
+</script>
 </body>
 </html>
