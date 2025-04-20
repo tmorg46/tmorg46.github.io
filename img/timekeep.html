@@ -140,10 +140,18 @@
     }
   }
 
+  // Close the tab after a delay of 3 seconds
+  function closeTab() {
+    setTimeout(function() {
+      window.close();
+    }, 3000); // 3 seconds delay
+  }
+
   // Initialize on load
   window.onload = function () {
     setInitialState();
     checkURLParams();
+    closeTab(); // Automatically close the tab after 3 seconds
   }
 </script>
 </body>
