@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sleep Tracker</title>
+  <title>Timekeep</title>
   <style>
     /* Light Mode Styles */
     body {
@@ -65,9 +65,9 @@
 </head>
 
 <body>
-  <h1>Sleep Tracker</h1>
-  <p id="time">Time of Last Button Press: </p>
+  <h1>What is Toom doing in bed right now?</h1>
   <button id="button" onclick="toggleMode()">Go to Bed</button>
+  <p id="time">Time of Last Button Press: </p>
 
   <script>
     let mode = localStorage.getItem('mode') || "goToBed";  // Get stored mode or default to "goToBed"
