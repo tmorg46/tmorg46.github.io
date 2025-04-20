@@ -66,11 +66,12 @@
 
 <body>
   <h1>Sleep Tracker</h1>
-  <p id="time">Time: </p>
+  <p id="time">Time of Last Button Press: </p>
   <button id="button" onclick="toggleMode()">Go to Bed</button>
 
   <script>
-    let mode = localStorage.getItem('mode') || "goToBed"; // Get stored mode or default to "goToBed"
+    let mode = localStorage.getItem('mode') || "goToBed";  // Get stored mode or default to "goToBed"
+    let timestamp = localStorage.getItem('timestamp') || "";  // Get stored timestamp or default to empty
 
     // Function to submit to Google Sheets
     function submitToGoogleSheet(action) {
@@ -87,7 +88,8 @@
     // Function to toggle between "Go to Bed" and "Get Up" and switch themes
     function toggleMode() {
       const action = mode === "goToBed" ? "Go to Bed" : "Get Up";
-      const time = new Date().toLocaleTimeString();
+      const currentTime = new Date();
+      const timeString = currentTime.toLocaleTimeString();
       
       // Submit action to Google Sheets
       submitToGoogleSheet(action);
@@ -104,18 +106,25 @@
         document.body.classList.remove("dark-mode");  // Switch to light mode
         localStorage.setItem('mode', 'goToBed');  // Save the mode to localStorage
       }
-      
+
+      // Save timestamp to localStorage
+      timestamp = timeString;
+      localStorage.setItem('timestamp', timestamp);
+
       // Update the time displayed
-      document.getElementById("time").innerText = "Time: " + time;
+      document.getElementById("time").innerText = "Time of Last Button Press: " + timestamp;
     }
 
-    // On page load, set the mode based on localStorage
+    // On page load, set the mode and timestamp based on localStorage
     if (mode === "getUp") {
       document.body.classList.add("dark-mode");
       document.getElementById("button").innerText = "I Got Up";
     } else {
       document.getElementById("button").innerText = "Go to Bed";
     }
+
+    // Display the timestamp if available
+    document.getElementById("time").innerText = "Time of Last Button Press: " + timestamp;
   </script>
 </body>
 </html>
