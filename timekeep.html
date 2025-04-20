@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sleep Tracker</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      padding: 2rem;
+      background-color: #f9f9f9;
+    }
+    button {
+      font-size: 1.5rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #mode {
+      margin-bottom: 2rem;
+      font-size: 1.25rem;
+    }
+    #log {
+      margin-top: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 0.5rem;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+  <h1>Sleep Tracker</h1>
+  <div id="mode">Current Mode: Go to Bed</div>
+  <button id="toggleBtn">Go to Bed</button>
+  <div id="log"></div>
+  <button style="margin-top:2rem; background-color:#2196F3" onclick="exportCSV()">Export to CSV</button>
+
+  <script>
+    let mode = "Go to Bed";
+    let entries = JSON.parse(localStorage.getItem('sleepEntries')) || [];
+
+    const modeText = document.getElementById("mode");
+    const button = document.getElementById("toggleBtn");
+    const log = document.getElementById("log");
+
+    function updateUI() {
+      modeText.textContent = `Current Mode: ${mode}`;
+      button.textContent = mode;
+      displayLog();
+    }
+
+    function toggleMode() {
+      const now = new Date();
+      entries.push({ mode, time: now.toISOString() });
+      localStorage.setItem('sleepEntries', JSON.stringify(entries));
+
+      mode = mode === "Go to Bed" ? "Get Up" : "Go to Bed";
+      updateUI();
+    }
+
+    function displayLog() {
+      if (entries.length === 0) {
+        log.innerHTML = '<p>No entries yet.</p>';
+        return;
+      }
+      let html = '<table><tr><th>Action</th><th>Time</th></tr>';
+      entries.forEach(entry => {
+        html += `<tr><td>${entry.mode}</td><td>${new Date(entry.time).toLocaleString()}</td></tr>`;
+      });
+      html += '</table>';
+      log.innerHTML = html;
+    }
+
+    function exportCSV() {
+      let csvContent = "data:text/csv;charset=utf-8,Action,Time\n" +
+        entries.map(e => `${e.mode},${new Date(e.time).toLocaleString()}`).join("\n");
+
+      const encodedUri = encodeURI(csvContent);
+      const link = document.createElement("a");
+      link.setAttribute("href", encodedUri);
+      link.setAttribute("download", "sleep_log.csv");
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    button.addEventListener("click", toggleMode);
+
+    updateUI();
+  </script>
+</body>
+</html>
