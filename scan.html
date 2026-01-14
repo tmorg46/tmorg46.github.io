@@ -2,35 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Redirecting...</title>
+    <title>Taking you to the Utah voter registration site!</title>
     <script>
-        // 2. The Logic
-        function redirect() {
-            const params = new URLSearchParams(window.location.search);
-            const destination = params.get('dest'); // The real link
-            const id = params.get('id');            // The tracking tag (e.g., "poster_conf_2024")
+    function redirect() {
+        // 1. Get the data from the QR link
+        const params = new URLSearchParams(window.location.search);
+        const destination = params.get('dest'); 
+        const qrId = params.get('id'); // This is the tag you printed, e.g., "poster_v1"
 
-            // 3. Log the scan (If using Google Analytics)
-            if (typeof gtag === 'function') {
-                gtag('event', 'qr_scan', {
-                    'event_category': 'QR',
-                    'event_label': id,
-                    'transport_type': 'beacon'
-                });
-            }
+        // 2. DEFINE YOUR GOOGLE FORM DETAILS HERE
+        const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfD1SXNdxSvgmYJx7TW91tsZtRC3XntX1U973N5FVMMh3YTYA/formEntry";
+        const entryField = "entry.40960110"; // Replace with your specific entry ID
 
-            // 4. Redirect (Safety delay to ensure tracking fires)
-            if (destination) {
-                setTimeout(() => {
-                    window.location.replace(destination); 
-                }, 500); 
-            } else {
-                document.body.innerText = "Error: No destination found.";
-            }
+        // 3. Send data to Google Sheets (if an ID exists)
+        if (qrId) {
+            // We construct the full URL: formResponse?entry.123=poster_v1&submit=Submit
+            const fullRequestUrl = `${formUrl}?${entryField}=${qrId}&submit=Submit`;
+            
+            // "no-cors" allows us to send data to Google without being blocked
+            fetch(fullRequestUrl, { mode: 'no-cors' }).catch((err) => {
+                console.error("Logging failed", err);
+            });
         }
-    </script>
+
+        // 4. Redirect the user
+        // We add a tiny delay (500ms) to ensure the 'fetch' command has time to leave the browser
+        if (destination) {
+            setTimeout(() => {
+                window.location.replace(destination); 
+            }, 500); 
+        } else {
+            document.body.innerText = "Error: No destination link provided.";
+        }
+    }
+</script>
 </head>
 <body onload="redirect()">
-    <p>Redirecting...</p>
+    <p>Taking you to the Utah voter registration site!</p>
 </body>
 </html>
