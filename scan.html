@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Redirecting...</title>
+    <script>
+        // 2. The Logic
+        function redirect() {
+            const params = new URLSearchParams(window.location.search);
+            const destination = params.get('dest'); // The real link
+            const id = params.get('id');            // The tracking tag (e.g., "poster_conf_2024")
+
+            // 3. Log the scan (If using Google Analytics)
+            if (typeof gtag === 'function') {
+                gtag('event', 'qr_scan', {
+                    'event_category': 'QR',
+                    'event_label': id,
+                    'transport_type': 'beacon'
+                });
+            }
+
+            // 4. Redirect (Safety delay to ensure tracking fires)
+            if (destination) {
+                setTimeout(() => {
+                    window.location.replace(destination); 
+                }, 500); 
+            } else {
+                document.body.innerText = "Error: No destination found.";
+            }
+        }
+    </script>
+</head>
+<body onload="redirect()">
+    <p>Redirecting...</p>
+</body>
+</html>
