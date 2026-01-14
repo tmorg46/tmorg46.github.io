@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Taking you to the Utah voter registration site!</title>
+    <script>
+    function redirect() {
+        // 1. Get the data from the QR link
+        const params = new URLSearchParams(window.location.search);
+
+
+
+
+        // this is the long link:
+        // https://secure.utah.gov/voterreg/login.html?selection=REGISTER
+        const destination = "https://secure.utah.gov/voterreg/login.html?selection=REGISTER"; 
+
+
+
+
+        const qrId = params.get('id'); // This is the tag you printed, e.g., "poster_v1"
+
+        // 2. DEFINE YOUR GOOGLE FORM DETAILS HERE
+        const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfD1SXNdxSvgmYJx7TW91tsZtRC3XntX1U973N5FVMMh3YTYA/formResponse";
+        const entryField = "entry.40960110"; // Replace with your specific entry ID
+
+        // 3. Send data to Google Sheets (if an ID exists)
+        if (qrId) {
+            // We construct the full URL: formResponse?entry.123=poster_v1&submit=Submit
+            const fullRequestUrl = `${formUrl}?${entryField}=${qrId}&submit=Submit`;
+            
+            // "no-cors" allows us to send data to Google without being blocked
+            fetch(fullRequestUrl, { mode: 'no-cors' }).catch((err) => {
+                console.error("Logging failed", err);
+            });
+        }
+
+        // 4. Redirect the user
+        // We add a tiny delay (500ms) to ensure the 'fetch' command has time to leave the browser
+        if (destination) {
+            setTimeout(() => {
+                window.location.replace(destination); 
+            }, 400); 
+        } else {
+            document.body.innerText = "Error: No destination link provided.";
+        }
+    }
+</script>
+</head>
+<body onload="redirect()">
+    <p>Taking you to the Utah voter registration site!</p>
+</body>
+</html>

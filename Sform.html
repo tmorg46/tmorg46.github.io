@@ -7,7 +7,17 @@
     function redirect() {
         // 1. Get the data from the QR link
         const params = new URLSearchParams(window.location.search);
-        const destination = params.get('dest'); 
+
+
+
+
+        // this is the short link:
+        // www.voter.utah.gov
+        const destination = "www.voter.utah.gov"; 
+
+
+
+
         const qrId = params.get('id'); // This is the tag you printed, e.g., "poster_v1"
 
         // 2. DEFINE YOUR GOOGLE FORM DETAILS HERE
@@ -30,7 +40,7 @@
         if (destination) {
             setTimeout(() => {
                 window.location.replace(destination); 
-            }, 500); 
+            }, 400); 
         } else {
             document.body.innerText = "Error: No destination link provided.";
         }
