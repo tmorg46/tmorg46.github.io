@@ -11,13 +11,6 @@
 .social-icons li {
   display: inline;
 }
-.social-icons a {
-  display: inline-block;
-  margin-right: 10px;
-  margin-left: 10px;
-  /* for using the original list */
-  /* text-indent: -9999px; */ 
-}
 
 .bg-tmorg {
   background-color: #030303 !important;
@@ -110,10 +103,12 @@ p {
 
 a {
   color: #800000;
+  text-decoration: none;
 }
 
   a:hover {
     color: #008080;
+    text-decoration: none;
     }
 
 .image-reduced {
