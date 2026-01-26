@@ -4,7 +4,7 @@
  */
 /* font styles
 -------------------------------------------------- */
-@import url("https://fonts.googleapis.com/css?family=Inter:700,500,600|Open+Sans:400,500,600,700,800");
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
 
 /* Custom styles
 -------------------------------------------------- */
@@ -20,11 +20,11 @@
 }
 
 .bg-tmorg {
-  background-color: #fdfffd !important;
+  background-color: #030303 !important;
 }
 
 body {
-  background-color: #fdfffd !important;
+  background-color: #fefefe !important;
 }
 
 .navbar-collapse {
@@ -32,8 +32,15 @@ body {
 }
 
 
-.display-5{font-size:3.2em;font-family:"Inter";font-weight:700;line-height:1.5}
-.display-6{font-size:1.4rem;font-family:"Inter";font-weight:300;line-height:1.2}
+.navbar-nav .nav-link i {
+  font-size: 1.2rem;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+
+
+.display-5{font-size:3.2em;font-family:"Atkinson Hyperlegible Mono";font-weight:400;line-height:1.5}
+.display-6{font-size:1.4rem;font-family:"Atkinson Hyperlegible Mono";font-weight:400;line-height:1.2}
 .navbar-toggler {
   text-align: center;
 }
@@ -43,15 +50,15 @@ body {
 }
 
 .nav-link {
-  color: #1c1c1c;
+  color: #f0f0f0;
   font-weight: 400;
-  font-family: "Open Sans";
+  font-family: "Atkinson Hyperlegible Mono";
 }
 .nav-link:hover{
-  color: #e06666;
+  color: #008d00;
 }
 .nav-link.wow:hover{
-  color: #1c1c1c !important;
+  color: #008d00 !important;
 }
 
 .fa-3x {
@@ -61,15 +68,20 @@ body {
 h1, h2, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-family: "Inter" !important;
-  color: #073767 !important;
+  font-family: "Atkinson Hyperlegible Mono" !important;
+  color: #008d00 !important;
 }
 
-h3 {font-family:"Inter"!important; color: #073767 !important;margin-top:1rem;margin-bottom:2.5rem;}
+h3 {
+  font-family:"Atkinson Hyperlegible Mono"!important;
+  color: #008d00 !important;
+  margin-top:1rem;
+  margin-bottom:2.5rem;
+}
 
 h4 {
-	font-size: 1.6rem !important;
-	font-weight: 600 !important;
+  font-size: 1.6rem !important;
+  font-weight: 400 !important;
   margin-bottom: 1rem;
 }
 
@@ -87,53 +99,33 @@ h4 {
 }
 
 p {
-	font-family: "Open Sans" !important;
-	font-size: 1.08rem !important;
-	font-weight: 400 !important;
+  font-family: "Atkinson Hyperlegible Mono" !important;
+  font-size: 0.95rem !important;
+  font-weight: 300 !important;
 }
 
 .lead {
-  font-family: "Inter" !important;
+  font-family: "Atkinson Hyperlegible Mono" !important;
 }
 
 a {
-  color: #073767;
+  color: #800000;
 }
 
-	a:hover {
-		color: #e06666;
-		}
+  a:hover {
+    color: #008080;
+    }
 
 bodylink {
   text-decoration: underline;
 }
 
-yeet {
-  color: #ff0000;
-}
-	yeet:hover {
-		color: #e06666;
-		}
-
-geet {
-  color: #333;
-}
-	geet:hover {
-		color: #e06666;
-	 }
-
 .image-reduced {
-  max-width: 16rem;
+  max-width: 22rem;
   width: 100%;
   height: auto;
   margin-top: 1.5rem;
   margin-right: -0.5rem;
-}
-
-.University{
-  color:rgb(0, 0, 0);
-  font-size: 20px;
-  font-family: "Inter" !important;
 }
 
 .container {
