@@ -1,122 +1,122 @@
 /**
- * File              : css/custom.css
- * Author            : Tommy Morgan
- */
+ * File              : css/custom.css
+ * Author            : Tommy Morgan
+ */
 /* font styles
 -------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap');
 
 /* Custom styles
 -------------------------------------------------- */
 .social-icons li {
-  display: inline;
+  display: inline;
 }
 
 .bg-tmorg {
-  background-color: #030303 !important;
+  background-color: #030303 !important;
 }
 
 body {
-  background-color: #fefefe !important;
+  background-color: #fefefe !important;
 }
 
 .navbar-collapse {
-  flex-grow: 0 !important;
+  flex-grow: 0 !important;
 }
 
 
 .navbar-nav .nav-link i {
-  font-size: 1.2rem;
-  vertical-align: middle;
-  margin-top: -3px;
+  font-size: 1.2rem;
+  vertical-align: middle;
+  margin-top: -3px;
 }
 
 
-.display-5{font-size:3.2em;font-family:"Inconsolata", monospace;font-weight:400;line-height:1.5}
-.display-6{font-size:1.4rem;font-family:"Inconsolata", monospace;font-weight:400;line-height:1.2}
+.display-5{font-size:3.2em;font-family:"Atkinson Hyperlegible Mono";font-weight:400;line-height:1.5}
+.display-6{font-size:1.4rem;font-family:"Atkinson Hyperlegible Mono";font-weight:400;line-height:1.2}
 .navbar-toggler {
-  text-align: center;
+  text-align: center;
 }
 
 .fa-bars {
-  color: #073767;
+  color: #073767;
 }
 
 .nav-link {
-  color: #f0f0f0;
-  font-weight: 400;
-  font-family: "Inconsolata", monospace;
+  color: #f0f0f0;
+  font-weight: 400;
+  font-family: "Atkinson Hyperlegible Mono";
 }
 .nav-link:hover{
-  color: #008d00;
+  color: #008d00;
 }
 .nav-link.wow:hover{
-  color: #008d00 !important;
+  color: #008d00 !important;
 }
 
 .fa-3x {
-  margin-top: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 h1, h2, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: 0.5rem;
-  font-family: "Inconsolata", monospace !important;
-  color: #008d00 !important;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-family: "Atkinson Hyperlegible Mono" !important;
+  color: #008d00 !important;
 }
 
 h3 {
-  font-family:"Inconsolata", monospace!important;
-  color: #008d00 !important;
-  margin-top:1rem;
-  margin-bottom:1rem;
+  font-family:"Atkinson Hyperlegible Mono"!important;
+  color: #008d00 !important;
+  margin-top:1rem;
+  margin-bottom:1rem;
 }
 
 h4 {
-  font-size: 1.6rem !important;
-  font-weight: 400 !important;
-  margin-bottom: 1rem;
+  font-size: 1.6rem !important;
+  font-weight: 400 !important;
+  margin-bottom: 1rem;
 }
 
 .no-padding-start {
-  padding-inline-start: 0px;
-  margin-bottom:2rem;
+  padding-inline-start: 0px;
+  margin-bottom:2rem;
 }
 
 .yeehaw {
-  margin-right: 0px !important;
+  margin-right: 0px !important;
 }
 
 .yeet {
-  margin-left: 0px !important;
+  margin-left: 0px !important;
 }
 
 p {
-  font-family: "Inconsolata", monospace !important;
-  font-size: 1.05rem !important;
-  font-weight: 300 !important;
+  font-family: "Atkinson Hyperlegible Mono" !important;
+  font-size: 1.05rem !important;
+  font-weight: 300 !important;
 }
 
 .lead {
-  font-family: "Inconsolata", monospace !important;
+  font-family: "Atkinson Hyperlegible Mono" !important;
 }
 
 a {
-  color: #800000;
-  text-decoration: none;
+  color: #800000;
+  text-decoration: none;
 }
 
-  a:hover {
-    color: #008080;
-    text-decoration: none;
-    }
+  a:hover {
+    color: #008080;
+    text-decoration: none;
+    }
 
 .image-reduced {
-  max-width: 22rem;
-  width: 100%;
-  height: auto;
-  margin-top: 1.5rem;
-  margin-right: -0.5rem;
+  max-width: 22rem;
+  width: 100%;
+  height: auto;
+  margin-top: 1.5rem;
+  margin-right: -0.5rem;
 }
 
 .container {
@@ -126,32 +126,32 @@ max-width:1540px;
 main.container {max-width:70rem;}
 
 .no-padding-start {
-  padding-inline-start: 0px; 
+  padding-inline-start: 0px; 
 }
 
 /* .no-disc {
-  list-style-type: none;
+  list-style-type: none;
 } */
 
 
 #myList {
-  font-weight: bold;
-  font-size: 1.2em;
+  font-weight: bold;
+  font-size: 1.2em;
 }
 
 .ec-list-tab.active {
-  background-color: rgb(40 80 124)!important;
+  background-color: rgb(40 80 124)!important;
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
 }
 
 
@@ -160,14 +160,14 @@ body {
 /* Not required for template or sticky footer method. */
 
 body > .container {
-  padding: 60px 15px 0;
+  padding: 60px 15px 0;
 }
 
 .footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 
 code {
-  font-size: 80%;
+  font-size: 80%;
 }
