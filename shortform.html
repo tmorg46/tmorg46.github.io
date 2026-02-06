@@ -20,8 +20,17 @@
 
         const qrId = params.get('id'); // This is the tag you printed, e.g., "poster_v1"
 
-        // 2. DEFINE YOUR GOOGLE FORM DETAILS HERE
-        const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSfD1SXNdxSvgmYJx7TW91tsZtRC3XntX1U973N5FVMMh3YTYA/formResponse";
+        // obscured!!!!
+        const pt1 = "htt";
+        const pt2 = "ps://doc";
+        const pt3 = "s.goog";
+        const pt4 = "le.c";
+        const pt5 = "om/for";
+        const pt6 = "ms/d/e/1FAIpQLSfD1SXNdxSvgmYJx7TW91tsZtRC3XntX1U973N5FVMMh3YTYA/fo";
+        const pt7 = "rmRes";
+        const pt8 = "ponse";
+
+        const fullsend = pt1 + pt2 + pt3 + pt4 + pt5 + pt6 + pt7 + pt8;
         const entryField = "entry.384352139"; // Replace with your specific entry ID
 
         // 3. Send data to Google Sheets (if an ID exists)
@@ -32,7 +41,7 @@
                 formData.append("submit", "Submit");
 
                 // sendBeacon is asynchronous and survives the page redirect
-                navigator.sendBeacon(formUrl, formData);
+                navigator.sendBeacon(fullsend, formData);
             }
 
             // Redirect immediately. No delay needed with sendBeacon.
