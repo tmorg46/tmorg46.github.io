@@ -26,24 +26,21 @@
 
         // 3. Send data to Google Sheets (if an ID exists)
         if (qrId) {
-            // We construct the full URL: formResponse?entry.123=poster_v1&submit=Submit
-            const fullRequestUrl = `${formUrl}?${entryField}=${qrId}&submit=Submit`;
-            
-            // "no-cors" allows us to send data to Google without being blocked
-            fetch(fullRequestUrl, { mode: 'no-cors' }).catch((err) => {
-                console.error("Logging failed", err);
-            });
-        }
+                // Construct the payload for Google Forms
+                const formData = new FormData();
+                formData.append(entryField, qrId);
+                formData.append("submit", "Submit");
 
-        // 4. Redirect the user
-        // We add a tiny delay (500ms) to ensure the 'fetch' command has time to leave the browser
-        if (destination) {
-            setTimeout(() => {
-                window.location.replace(destination); 
-            }, 300); 
-        } else {
-            document.body.innerText = "Error: No destination link provided.";
-        }
+                // sendBeacon is asynchronous and survives the page redirect
+                navigator.sendBeacon(formUrl, formData);
+            }
+
+            // Redirect immediately. No delay needed with sendBeacon.
+            if (destination) {
+                window.location.replace(destination);
+            } else {
+                document.body.innerText = "Error: No destination link provided.";
+            }
     }
 </script>
 </head>
