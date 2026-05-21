@@ -123,7 +123,7 @@
         <label for="field2">Field 2</label>
         <div>
           <input id="field2" type="text" placeholder="Commenters" value="%" maxlength="2" />
-          <div class="hint">Stata: "* ", LaTeX: "% ", Python: "# ", etc.</div>
+          <div class="hint">Stata: *, LaTeX: %, Python: #, etc.</div>
         </div>
       </div>
 
@@ -1049,7 +1049,7 @@
       try {
         const artLines = renderFiglet(inputText, font);
         const trimmed = artLines.slice(1, 6);
-        output.value = trimmed.map(line => prefixChar + line).join('\n');
+        output.value = trimmed.map(line => (prefixChar + " ") + line).join('\n');
         setStatus('No issues detected!');
       } catch (err) {
         setStatus(err.message || 'Conversion failed.');
