@@ -1013,7 +1013,7 @@
 
           for (let i = 0; i < font.height; i++) {
             const row = glyph[i] || '';
-            artLines[i] += row.padEnd(glyphWidth, ' ') + ' ';
+            artLines[i] += row.padEnd(glyphWidth, ' ') + '';
           }
         }
 
