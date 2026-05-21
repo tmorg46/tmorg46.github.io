@@ -1049,7 +1049,7 @@
       try {
         const artLines = renderFiglet(inputText, font);
         const trimmed = artLines.slice(1, 6);
-        output.value = trimmed.map(line => (prefixChar + " ") + line).join('\n');
+        output.value = trimmed.map(line => prefixChar + line).join('\n');
         setStatus('No issues detected!');
       } catch (err) {
         setStatus(err.message || 'Conversion failed.');
