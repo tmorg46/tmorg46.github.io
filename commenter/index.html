@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Single-File FIGlet / Art Text Converter</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    body {
+      margin: 0;
+      padding: 24px;
+      line-height: 1.4;
+    }
+    .wrap {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    h1 {
+      margin: 0 0 12px;
+      font-size: 1.5rem;
+    }
+    p.note {
+      margin: 0 0 20px;
+      opacity: 0.85;
+    }
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1fr;
+    }
+    .row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 10px;
+      align-items: start;
+    }
+    label {
+      font-weight: 600;
+      padding-top: 10px;
+    }
+    input[type="text"], textarea {
+      width: 100%;
+      box-sizing: border-box;
+      font: inherit;
+      border: 1px solid #8888;
+      border-radius: 10px;
+      padding: 10px 12px;
+      background: transparent;
+    }
+    input[type="text"] {
+      min-height: 42px;
+    }
+    textarea {
+      min-height: 280px;
+      resize: vertical;
+      white-space: pre;
+      overflow-wrap: normal;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    }
+    button {
+      width: fit-content;
+      padding: 10px 16px;
+      border: 1px solid #8888;
+      border-radius: 10px;
+      background: #f2f2f2;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 600;
+    }
+    button:hover {
+      filter: brightness(0.98);
+    }
+    .actions {
+      margin-left: 170px;
+    }
+    .status {
+      margin: 10px 0 0 170px;
+      min-height: 1.4em;
+      opacity: 0.9;
+      font-size: 0.95rem;
+    }
+    .hint {
+      margin: 6px 0 0;
+      font-size: 0.9rem;
+      opacity: 0.75;
+    }
+    code.inline {
+      padding: 0 0.25em;
+      border-radius: 6px;
+      background: #8882;
+    }
+    @media (max-width: 700px) {
+      .row, .actions, .status {
+        margin-left: 0;
+        grid-template-columns: 1fr;
+      }
+      label {
+        padding-top: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Single-file FIGlet / Art Text Converter</h1>
+    <p class="note">
+      inspired by needing to fix the dumb Q and R in the Mono 9 font hosted at patorjk.com/software/taag
+    </p>
+
+    <div class="grid">
+      <div class="row">
+        <label for="field1">Text</label>
+        <div>
+          <input id="field1" type="text" placeholder="Enter text here" value="BIRDS!" />
+          <div class="hint">Text you want converted to art text</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="field2">Field 2</label>
+        <div>
+          <input id="field2" type="text" placeholder="Commenters" value="%" maxlength="2" />
+          <div class="hint">Text added to the start of every output line</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="field3">Field 3</label>
+        <div>
+          <textarea id="field3" readonly placeholder="Output appears here"></textarea>
+          <div class="hint">Enjoy!</div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="convertBtn" type="button">Convert</button>
+      </div>
+
+      <div class="status" id="status"></div>
+    </div>
+  </div>
+
+  <!--
+    Paste the full contents of your FIGlet .flf file between the tags below.
+    Keep the raw text exactly as-is, including line breaks.
+
+    Example:
+    flf2a$ 6 5 20 15 11 0 24463 229
+    This is a comment line
+    This is another comment line
+    ... glyph data ...
+  -->
+  <script id="figlet-font" type="text/plain">flf2a$ 8 7 16 -1 4 0 0
+===================================================
+  I modded this file:
+   % caca2tlf --half --utf8 "Monospace 9"
+===================================================
+   $  $@ 
+   $  $@ 
+   $  $@ 
+   $  $@ 
+   $  $@ 
+   $  $@ 
+   $  $@ 
+   $  $@@
+       @ 
+   ▄   @ 
+   █   @ 
+   █   @ 
+   ▀   @ 
+   █   @ 
+       @ 
+       @@
+       @ 
+  ▄ ▄  @ 
+  █ █  @ 
+       @ 
+       @ 
+       @ 
+       @ 
+       @@
+       @ 
+       @ 
+   ▀ █ @ 
+ ▀█▀█▀▀@ 
+▄▄█▄█▄ @ 
+ █ ▄▀  @ 
+       @ 
+       @@
+       @ 
+   ▄   @ 
+ ▄▀█▀▄ @ 
+ █▄█   @ 
+   █▀█ @ 
+ ▀▄█▄▀ @ 
+   █   @ 
+       @@
+       @ 
+ ▄▄    @ 
+█  █   @ 
+ ▀▀▄ ▀ @ 
+ ▀ ▄▀▀▄@ 
+   ▀▄▄▀@ 
+       @ 
+       @@
+       @ 
+   ▄▄▄ @ 
+  █    @ 
+  ██   @ 
+ █  █▄█@ 
+ ▀█▄▄█▄@ 
+       @ 
+       @@
+       @ 
+   ▄   @ 
+   █   @ 
+       @ 
+       @ 
+       @ 
+       @ 
+       @@
+       @ 
+    █▀ @ 
+   ▄▀  @ 
+   █   @ 
+   █   @ 
+    █  @ 
+     ▀ @ 
+       @@
+       @ 
+  ▀▄   @ 
+   ▀▄  @ 
+    █  @ 
+    █  @ 
+   █   @ 
+  ▀    @ 
+       @@
+       @ 
+   ▄   @ 
+ ▀▄█▄▀ @ 
+ ▄▀█▀▄ @ 
+   ▀   @ 
+       @ 
+       @ 
+       @@
+       @ 
+       @ 
+   ▄   @ 
+   █   @ 
+▀▀▀█▀▀▀@ 
+   █   @ 
+       @ 
+       @@
+       @ 
+       @ 
+       @ 
+       @ 
+       @ 
+   █   @ 
+  ▀    @ 
+       @@
+       @ 
+       @ 
+       @ 
+       @ 
+  ▀▀▀  @ 
+       @ 
+       @ 
+       @@
+       @ 
+       @ 
+       @ 
+       @ 
+       @ 
+   █   @ 
+       @ 
+       @@
+       @ 
+      ▄@ 
+     █ @ 
+    █  @ 
+   █   @ 
+  █    @ 
+ ▀     @ 
+       @@
+       @ 
+  ▄▄▄▄ @ 
+ ▄▀  ▀▄@ 
+ █  ▄ █@ 
+ █    █@ 
+  █▄▄█ @ 
+       @ 
+       @@
+       @ 
+ ▄▄▄   @ 
+   █   @ 
+   █   @ 
+   █   @ 
+ ▄▄█▄▄ @ 
+       @ 
+       @@
+       @ 
+  ▄▄▄▄ @ 
+ ▀   ▀█@ 
+     ▄▀@ 
+   ▄▀  @ 
+ ▄█▄▄▄▄@ 
+       @ 
+       @@
+       @ 
+  ▄▄▄▄ @ 
+ ▀   ▀█@ 
+   ▄▄▄▀@ 
+     ▀█@ 
+ ▀▄▄▄█▀@ 
+       @ 
+       @@
+       @ 
+    ▄▄ @ 
+   ▄▀█ @ 
+  █▀ █ @ 
+ █▄▄▄█▄@ 
+     █ @ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄ @ 
+ █     @ 
+ ▀▀▀▀▄▄@ 
+      █@ 
+ ▀▄▄▄█▀@ 
+       @ 
+       @@
+       @ 
+   ▄▄▄ @ 
+ ▄▀   ▀@ 
+ █▄▀▀█▄@ 
+ █    █@ 
+  █▄▄█▀@ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄▄@ 
+     █▀@ 
+    ▄▀ @ 
+   ▄▀  @ 
+  ▄▀   @ 
+       @ 
+       @@
+       @ 
+  ▄▄▄▄ @ 
+ █    █@ 
+ ▀▄▄▄▄▀@ 
+ █   ▀█@ 
+ ▀█▄▄▄▀@ 
+       @ 
+       @@
+       @ 
+  ▄▄▄▄ @ 
+ █▀  ▀▄@ 
+ █▄  ▄█@ 
+  ▀▀▀ █@ 
+ ▀▄▄▄▀ @ 
+       @ 
+       @@
+       @ 
+       @ 
+       @ 
+   █   @ 
+       @ 
+   █   @ 
+       @ 
+       @@
+       @ 
+       @ 
+       @ 
+   █   @ 
+       @ 
+   █   @ 
+  ▀    @ 
+       @@
+       @ 
+       @ 
+      ▄@ 
+ ▄▄▀▀▀ @ 
+ ▀▀▄▄▄ @ 
+      ▀@ 
+       @ 
+       @@
+       @ 
+       @ 
+       @ 
+ ▄▄▄▄▄▄@ 
+ ▄▄▄▄▄▄@ 
+       @ 
+       @ 
+       @@
+       @ 
+       @ 
+ ▄     @ 
+  ▀▀▀▄▄@ 
+  ▄▄▄▀▀@ 
+ ▀     @ 
+       @ 
+       @@
+       @ 
+   ▄▄▄ @ 
+  ▀   █@ 
+   ▄█▀ @ 
+   ▀   @ 
+   █   @ 
+       @ 
+       @@
+       @ 
+       @ 
+  ▄▀▀█▄@ 
+ █  ▄▄█@ 
+ █ █  █@ 
+ █▄ ▀▀▀@ 
+  ▀▄▄▄ @ 
+       @@
+       @ 
+   ▄▄  @ 
+   ██  @ 
+  █  █ @ 
+  █▄▄█ @ 
+ █    █@ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄ @ 
+ █    █@ 
+ █▄▄▄▄▀@ 
+ █    █@ 
+ █▄▄▄▄▀@ 
+       @ 
+       @@
+       @ 
+   ▄▄▄ @ 
+ ▄▀   ▀@ 
+ █     @ 
+ █     @ 
+  ▀▄▄▄▀@ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄  @ 
+ █   ▀▄@ 
+ █    █@ 
+ █    █@ 
+ █▄▄▄▀ @ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄▄@ 
+ █     @ 
+ █▄▄▄▄▄@ 
+ █     @ 
+ █▄▄▄▄▄@ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄▄@ 
+ █     @ 
+ █▄▄▄▄▄@ 
+ █     @ 
+ █     @ 
+       @ 
+       @@
+       @ 
+   ▄▄▄ @ 
+ ▄▀   ▀@ 
+ █   ▄▄@ 
+ █    █@ 
+  ▀▄▄▄▀@ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+ █    █@ 
+ █▄▄▄▄█@ 
+ █    █@ 
+ █    █@ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄ @ 
+   █   @ 
+   █   @ 
+   █   @ 
+ ▄▄█▄▄ @ 
+       @ 
+       @@
+       @ 
+   ▄▄▄ @ 
+     █ @ 
+     █ @ 
+     █ @ 
+ ▀▄▄▄▀ @ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+ █  ▄▀ @ 
+ █▄█   @ 
+ █  █▄ @ 
+ █   ▀▄@ 
+       @ 
+       @@
+       @ 
+ ▄     @ 
+ █     @ 
+ █     @ 
+ █     @ 
+ █▄▄▄▄▄@ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+ ██  ██@ 
+ █ ██ █@ 
+ █ ▀▀ █@ 
+ █    █@ 
+       @ 
+       @@
+       @ 
+ ▄▄   ▄@ 
+ █▀▄  █@ 
+ █ █▄ █@ 
+ █  █ █@ 
+ █   ██@ 
+       @ 
+       @@
+       @ 
+  ▄▄▄▄ @ 
+ ▄▀  ▀▄@ 
+ █    █@ 
+ █    █@ 
+  █▄▄█ @ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄ @ 
+ █   ▀█@ 
+ █▄▄▄█▀@ 
+ █     @ 
+ █     @ 
+       @ 
+       @@
+       @ 
+  ▄▄▄▄ @ 
+ ▄▀  ▀▄@ 
+ █    █@ 
+ █  █ █@ 
+  █▄▄██@ 
+       @ 
+       @@
+       @
+ ▄▄▄▄▄ @ 
+ █   ▀█@ 
+ █▄▄▄▄▀@ 
+ █   ▀▄@ 
+ █    █@ 
+       @ 
+       @@
+       @ 
+  ▄▄▄▄ @ 
+ █▀   ▀@ 
+ ▀█▄▄▄ @ 
+     ▀█@ 
+ ▀▄▄▄█▀@ 
+       @ 
+       @@
+       @ 
+▄▄▄▄▄▄▄@ 
+   █   @ 
+   █   @ 
+   █   @ 
+   █   @ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+ █    █@ 
+ █    █@ 
+ █    █@ 
+ ▀▄▄▄▄▀@ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+ ▀▄  ▄▀@ 
+  █  █ @ 
+  ▀▄▄▀ @ 
+   ██  @ 
+       @ 
+       @@
+       @ 
+▄     ▄@ 
+█  █  █@ 
+▀ █▀█ █@ 
+ ██ ██▀@ 
+ █   █ @ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+  █  █ @ 
+   ██  @ 
+  ▄▀▀▄ @ 
+ ▄▀  ▀▄@ 
+       @ 
+       @@
+       @ 
+▄     ▄@ 
+ ▀▄ ▄▀ @ 
+  ▀█▀  @ 
+   █   @ 
+   █   @ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄▄@ 
+     █▀@ 
+   ▄█  @ 
+  ▄▀   @ 
+ ██▄▄▄▄@ 
+       @ 
+       @@
+       @ 
+   █▀  @ 
+   █   @ 
+   █   @ 
+   █   @ 
+   █   @ 
+   ▀▀  @ 
+       @@
+       @ 
+ ▄     @ 
+  █    @ 
+   █   @ 
+    █  @ 
+     █ @ 
+      ▀@ 
+       @@
+       @ 
+  ▀█   @ 
+   █   @ 
+   █   @ 
+   █   @ 
+   █   @ 
+  ▀▀   @ 
+       @@
+       @ 
+  ▄▄   @ 
+▄▀  ▀▄ @ 
+       @ 
+       @ 
+       @ 
+       @ 
+       @@
+       @ 
+       @ 
+       @ 
+       @ 
+       @ 
+       @ 
+       @ 
+▀▀▀▀▀▀ @@
+       @ 
+   ▀▄  @ 
+       @ 
+       @ 
+       @ 
+       @ 
+       @ 
+       @@
+       @ 
+   ▄▄  @ 
+   ██  @ 
+  █  █ @ 
+  █▄▄█ @ 
+ █    █@ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄ @ 
+ █    █@ 
+ █▄▄▄▄▀@ 
+ █    █@ 
+ █▄▄▄▄▀@ 
+       @ 
+       @@
+       @ 
+   ▄▄▄ @ 
+ ▄▀   ▀@ 
+ █     @ 
+ █     @ 
+  ▀▄▄▄▀@ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄  @ 
+ █   ▀▄@ 
+ █    █@ 
+ █    █@ 
+ █▄▄▄▀ @ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄▄@ 
+ █     @ 
+ █▄▄▄▄▄@ 
+ █     @ 
+ █▄▄▄▄▄@ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄▄@ 
+ █     @ 
+ █▄▄▄▄▄@ 
+ █     @ 
+ █     @ 
+       @ 
+       @@
+       @ 
+   ▄▄▄ @ 
+ ▄▀   ▀@ 
+ █   ▄▄@ 
+ █    █@ 
+  ▀▄▄▄▀@ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+ █    █@ 
+ █▄▄▄▄█@ 
+ █    █@ 
+ █    █@ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄ @ 
+   █   @ 
+   █   @ 
+   █   @ 
+ ▄▄█▄▄ @ 
+       @ 
+       @@
+       @ 
+   ▄▄▄ @ 
+     █ @ 
+     █ @ 
+     █ @ 
+ ▀▄▄▄▀ @ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+ █  ▄▀ @ 
+ █▄█   @ 
+ █  █▄ @ 
+ █   ▀▄@ 
+       @ 
+       @@
+       @ 
+ ▄     @ 
+ █     @ 
+ █     @ 
+ █     @ 
+ █▄▄▄▄▄@ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+ ██  ██@ 
+ █ ██ █@ 
+ █ ▀▀ █@ 
+ █    █@ 
+       @ 
+       @@
+       @ 
+ ▄▄   ▄@ 
+ █▀▄  █@ 
+ █ █▄ █@ 
+ █  █ █@ 
+ █   ██@ 
+       @ 
+       @@
+       @ 
+  ▄▄▄▄ @ 
+ ▄▀  ▀▄@ 
+ █    █@ 
+ █    █@ 
+  █▄▄█ @ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄ @ 
+ █   ▀█@ 
+ █▄▄▄█▀@ 
+ █     @ 
+ █     @ 
+       @ 
+       @@
+       @ 
+  ▄▄▄▄ @ 
+ ▄▀  ▀▄@ 
+ █    █@ 
+ █  █ █@ 
+  █▄▄██@ 
+       @ 
+       @@
+       @
+ ▄▄▄▄▄ @ 
+ █   ▀█@ 
+ █▄▄▄▄▀@ 
+ █   ▀▄@ 
+ █    █@ 
+       @ 
+       @@
+       @ 
+  ▄▄▄▄ @ 
+ █▀   ▀@ 
+ ▀█▄▄▄ @ 
+     ▀█@ 
+ ▀▄▄▄█▀@ 
+       @ 
+       @@
+       @ 
+▄▄▄▄▄▄▄@ 
+   █   @ 
+   █   @ 
+   █   @ 
+   █   @ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+ █    █@ 
+ █    █@ 
+ █    █@ 
+ ▀▄▄▄▄▀@ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+ ▀▄  ▄▀@ 
+  █  █ @ 
+  ▀▄▄▀ @ 
+   ██  @ 
+       @ 
+       @@
+       @ 
+▄     ▄@ 
+█  █  █@ 
+▀ █▀█ █@ 
+ ██ ██▀@ 
+ █   █ @ 
+       @ 
+       @@
+       @ 
+ ▄    ▄@ 
+  █  █ @ 
+   ██  @ 
+  ▄▀▀▄ @ 
+ ▄▀  ▀▄@ 
+       @ 
+       @@
+       @ 
+▄     ▄@ 
+ ▀▄ ▄▀ @ 
+  ▀█▀  @ 
+   █   @ 
+   █   @ 
+       @ 
+       @@
+       @ 
+ ▄▄▄▄▄▄@ 
+     █▀@ 
+   ▄█  @ 
+  ▄▀   @ 
+ ██▄▄▄▄@ 
+       @ 
+       @@
+       @ 
+   ▄▀▀ @ 
+   █   @ 
+ ▄▄▀   @ 
+   █   @ 
+   █   @ 
+    ▀▀ @ 
+       @@
+       @ 
+   █   @ 
+   █   @ 
+   █   @ 
+   █   @ 
+   █   @ 
+   █   @ 
+       @@
+       @ 
+ ▀▀▄   @ 
+   █   @ 
+   ▀▄▄ @ 
+   █   @ 
+   █   @ 
+ ▀▀    @ 
+       @@
+       @ 
+       @ 
+       @ 
+ ▄▄▄  ▄@ 
+ ▀  ▀▀▀@ 
+       @ 
+       @ 
+       @@</script>
+
+  <script>
+    function setStatus(message) {
+      document.getElementById('status').textContent = message || '';
+    }
+
+    function normalizeInputText(text) {
+      return String(text ?? '').replace(/\r\n?/g, '\n');
+    }
+
+    function parseFigletFont(raw) {
+      const text = String(raw || '').replace(/\r\n/g, '\n').trimEnd();
+      if (!text || text.includes('PLACEHOLDER_FLF_CONTENT_GOES_HERE')) {
+        return null;
+      }
+
+      const lines = text.split('\n');
+      if (!lines.length) return null;
+
+      const header = lines[0].trim();
+      const parts = header.split(/\s+/);
+      if (parts.length < 6 || !/^flf2a/.test(parts[0])) {
+        throw new Error('Invalid FIGlet header.');
+      }
+
+      const hardblank = parts[0].slice(-1);
+      const height = parseInt(parts[1], 10);
+      const commentLines = parseInt(parts[5], 10);
+
+      if (!Number.isFinite(height) || height <= 0) {
+        throw new Error('Invalid FIGlet height.');
+      }
+      if (!Number.isFinite(commentLines) || commentLines < 0) {
+        throw new Error('Invalid FIGlet comment-line count.');
+      }
+
+      const startIndex = 1 + commentLines;
+      const glyphLines = lines.slice(startIndex);
+
+      // Standard FIGlet printable ASCII range: 32..126.
+      const glyphCount = Math.floor(glyphLines.length / height);
+      const glyphs = new Map();
+      let cursor = 0;
+
+      function cleanGlyphLine(line) {
+          line = line.replace(/\s+$/, '');
+          line = line.replace(new RegExp(endmarkEscaped + '+$'), '');
+          line = line.replaceAll(hardblank, ' ');
+          return line;
+        }
+
+      // Find the endmark from the first glyph line.
+      if (!glyphLines.length) {
+        throw new Error('No glyph data found.');
+      }
+      const firstDataLine = glyphLines[0].trimEnd();
+      const endmark = firstDataLine.slice(-1);
+      const endmarkEscaped = endmark.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+      for (let code = 32; code < 32 + glyphCount; code++) {
+        const glyph = [];
+        for (let row = 0; row < height; row++) {
+          if (cursor >= glyphLines.length) {
+            throw new Error('Unexpected end of font data while reading glyph ' + String.fromCharCode(code) + '.');
+          }
+
+          let line = glyphLines[cursor++].trimEnd();
+          if (row === height - 1) {
+            glyph.push(cleanGlyphLine(line));
+          } else {
+            glyph.push(cleanGlyphLine(line));
+          }
+        }
+        glyphs.set(String.fromCharCode(code), glyph);
+      }
+
+      return { hardblank, height, endmark, glyphs };
+    }
+
+    function renderFiglet(text, font) {
+      const lines = normalizeInputText(text).split('\n');
+      const outputBlocks = [];
+
+      for (const line of lines) {
+        const artLines = Array.from({ length: font.height }, () => '');
+
+        for (const ch of line) {
+            const glyph = font.glyphs.get(ch) || font.glyphs.get('?');
+
+          if (!glyph) continue;
+
+          const glyphWidth = Math.max(...glyph.map(r => r.length));
+
+          for (let i = 0; i < font.height; i++) {
+            const row = glyph[i] || '';
+            artLines[i] += row.padEnd(glyphWidth, ' ') + ' ';
+          }
+        }
+
+        outputBlocks.push(
+          ...artLines.map(line => line.replace(/\s+$/g, ''))
+        );
+      }
+
+      return outputBlocks.map(line => line.replace(/\s+$/g, ''));
+    }
+
+    function convertNow() {
+      const inputText = document.getElementById('field1').value;
+      const prefixChar = document.getElementById('field2').value ?? '';
+      const output = document.getElementById('field3');
+
+      let font;
+      try {
+        const rawFont = document.getElementById('figlet-font').textContent;
+        font = parseFigletFont(rawFont);
+      } catch (err) {
+        setStatus(err.message || 'Could not parse the FIGlet font.');
+        output.value = '';
+        return;
+      }
+
+      if (!font) {
+        setStatus('Paste the .flf contents into the placeholder block first.');
+        output.value = '';
+        return;
+      }
+
+      try {
+        const artLines = renderFiglet(inputText, font);
+        const trimmed = artLines.slice(1, 6);
+        output.value = trimmed.map(line => prefixChar + line).join('\n');
+        setStatus('No issues detected!');
+      } catch (err) {
+        setStatus(err.message || 'Conversion failed.');
+        output.value = '';
+      }
+    }
+
+    document.getElementById('convertBtn').addEventListener('click', convertNow);
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Enter') return;
+      if (e.ctrlKey || e.metaKey || e.altKey) return;
+
+      e.preventDefault();
+      convertNow();
+    });
+
+    // Optional live preview on load.
+    window.addEventListener('DOMContentLoaded', () => {
+      convertNow();
+    });
+
+
+  </script>
+</body>
+</html>
