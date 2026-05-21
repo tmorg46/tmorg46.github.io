@@ -1,0 +1,93 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Here's some basic formatting packages:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}                       % Required for inserting images
+\usepackage{xcolor}                         % some lovely color additions!!
+\setlength{\parskip}{0.5em}                  % this forces LaTeX to make paragraph skips not be single-spaced
+%\usepackage{import}                         % this allows us to bring separate .tex files into the main document using \import, \input, etc.
+%\usepackage{lscape}                         % this allows us to put things into landscape via \begin{landscape}
+\usepackage{setspace}                       % this allows us to put block quotes into single spaced typeset using the following:
+\usepackage[normalem]{ulem}                 % this allows for strikethrough text using \sout{}
+\AtBeginEnvironment{quote}{\par\singlespacing\small} % handling big block quotes
+
+%colors!
+\definecolor{UTorange}{RGB}{255,130,0} % Define Tennessee Orange
+\definecolor{smokeygray}{RGB}{75,75,75} % Define Smokey Gray
+\definecolor{UTMlimestone}{RGB}{240,237,227} % Define UT Martin Limestone
+
+\usepackage{hyperref}                       % this allows us to color links using the following:
+\hypersetup{
+    colorlinks=true,
+    citecolor=black,
+    linkcolor=black,
+    filecolor=UTorange,      
+    urlcolor=UTorange,
+    }
+\urlstyle{same}
+\usepackage[margin=1in]{geometry}  % this makes the size of the page consistent and sets the document-wide margin sizes
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Here's the packages that manage my bibliography
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xurl}
+\usepackage[style=apa,backend=biber,url=true]{biblatex}
+\addbibresource{references.bib} % Replace with your .bib file
+
+% Limit citations to 2 authors before using et al.
+\DeclareNameFormat{author}{%
+  \ifnum\value{listcount}=1
+    \ifnum\value{liststop}>2
+      \usebibmacro{name:last}{##1}{##3}{##5}{##7}%
+      \space et~al.%
+    \else
+      \usebibmacro{name:last-first}{##1}{##3}{##5}{##7}%
+    \fi
+  \else
+    \usebibmacro{name:last-first}{##1}{##3}{##5}{##7}%
+  \fi
+  }
+
+
+% use full author field on first cite, then shortauthor on following cites
+\makeatletter
+\AtEveryCitekey{%
+  \ifciteseen
+    {}
+   {\clearfield{shortauthor}}%
+}
+\makeatother
+  
+  % this is a footnote without a number
+  \newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Here's the packages for good math typesetting:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}                    % this enables all the nice math stuff, like \frac and \begin{bmatrix}
+\usepackage{amsthm}                     % this enables theory work like follows:
+\newtheorem{prop}{Proposition}
+\newtheorem{cor}{Corollary}[prop]
+\usepackage{amsfonts}                   % this enables the fancy expectation operator as \mathbb{E}, among other symbols
+%\usepackage{bbm}                        % this allows lowercase blackboard bold as \mathbbm{y}, and so on
+%\usepackage{bm}                         % enables generalized bolded math-mode symbols via \bm{text}
+\allowdisplaybreaks                     % this command allows \begin{align} environments to extend over multiple pages
+\DeclareMathOperator*{\argmax}{argmax}  % this gives the nice under-argmin operator via \argmin_{thing under argmin}
+\DeclareMathOperator*{\argmin}{argmin}  % this gives the nice under-argmin operator via \argmin_{thing under argmin}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Here's the packages for nice tables & figures:
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{float}                          % this allows positioning of tables via [h!], etc.
+\usepackage{threeparttable}                 % this makes for easy, consistently-formatted notes under tables that I love and appreciate dearly
+\usepackage{booktabs}                       % this enables topline, cmidrule, etc. in our tables
+\usepackage{arydshln}                       % this enables \hdashline
+\usepackage{caption}                        % this properly spaces table captions an appropriate distance from the tables
+\usepackage{subcaption}                     % this gives us good notes beneath figures using \subcaption or \subfigure
+\usepackage{adjustbox}                      % this allows us to put nice boxes around figures and tables using \adjustbox{} if we want to do so

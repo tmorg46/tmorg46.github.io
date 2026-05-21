@@ -1,0 +1,109 @@
+\usepackage{graphicx} % Required for inserting images
+
+\usepackage{caption}
+\usepackage{subcaption} % required for putting images next to each other?
+\usepackage{bbm}        % get the nice blackboard numbers
+\usepackage{booktabs}   % allows cmidrule, etc, for tables
+
+\usepackage{threeparttable} % I like my tables!!
+
+\usepackage{tikz}
+\usetikzlibrary{tikzmark, fit}  % these combine to allow colored boxes around table cells
+\tikzset{
+    volbox/.style={
+        draw=UTorange,
+        line width=2pt,
+        rounded corners=2pt,
+        inner sep=4pt
+    }
+}
+
+% Define custom colors
+\definecolor{UTorange}{RGB}{255,130,0} % Define Tennessee Orange
+\definecolor{smokeygray}{RGB}{75,75,75} % Define Smokey Gray
+\definecolor{UTMlimestone}{RGB}{240,237,227} % Define UT Martin Limestone
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=UTorange,
+    filecolor=UTorange,      
+    urlcolor=UTorange,
+}
+
+\usepackage{CJKutf8}    % allows the shrug:
+\newcommand{\shrug}{%
+  \textasciimacron\textbackslash\_(\begin{CJK}{UTF8}{min}ツ\end{CJK})\_/\textasciimacron%
+}
+
+\DeclareMathOperator*{\argmax}{argmax}  % this gives the nice under-argmin operator via \argmin_{thing under argmin}
+\DeclareMathOperator*{\argmin}{argmin}  % this gives the nice under-argmin operator via \argmin_{thing under argmin}
+
+\newcommand{\sym}[1]{#1}                % this allows compiles from esttab
+
+\mode<presentation>
+{
+    \usetheme{Frankfurt}
+    \usefonttheme{professionalfonts}
+
+    % Update the structure color theme (i.e. bullet points)
+    \usecolortheme[named=UTorange]{structure}
+
+    % Update the normal text color
+    \setbeamercolor{normal text}{fg=smokeygray}
+    \setbeamercolor{title}{fg=UTorange, bg=smokeygray}
+    \setbeamercolor{frametitle}{fg=UTorange, bg=UTMlimestone}
+    \setbeamercolor{section in head/foot}{fg=UTorange, bg=smokeygray}
+    \setbeamercolor{block body}{fg=smokeygray, bg=UTMlimestone}
+    \setbeamercolor{block title}{fg=UTorange, bg=smokeygray}
+    
+    % Prefer the flat circular bullets for all item sublevels
+    \setbeamertemplate{itemize items}{{$\bullet$}}
+  
+    % SAY NO TO NAVIGATION SYMBOLS
+    %\setbeamertemplate{navigation symbols}{}
+
+    
+    
+    % add nice toggleable table of content slides to the start of each section
+    \newif\ifshowtoc
+    \showtoctrue % toggles to show the toc
+    \AtBeginSection[]{
+        \ifshowtoc % toggle this before a section via \showtoctrue or \showtocfalse
+        \begin{frame}
+            \frametitle{Table of Contents}
+            \tableofcontents[currentsection]
+        \end{frame}
+        \fi
+    }
+    
+    % i like the frame numbers
+    \setbeamertemplate{footline}[frame number]{}
+
+    % make the items gray until i click
+    \setbeamercovered{transparent}
+    
+    % CONTROL THE COUNTING OF SLIDES: main body vs. appendix
+    % use command appendix to begin the backup slides
+    \usepackage{appendixnumberbeamer}
+    \newcommand{\beginbackup}{
+       \newcounter{framenumbervorappendix}
+       \setcounter{framenumbervorappendix}{\value{framenumber}}
+       
+       \setbeamertemplate{footline}
+       {
+         \leavevmode%
+         \hline
+         box{%
+           \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,right]{footlinecolor}%
+    %         \insertframenumber  %comment \hspace*{2ex} 
+           \end{beamercolorbox}}%
+         \vskip0pt%
+       }
+     }
+     \newcommand{\backupend}{
+       \addtocounter{framenumbervorappendix}{-\value{framenumber}}
+       \addtocounter{framenumber}{\value{framenumbervorappendix}} 
+    }
+
+}
