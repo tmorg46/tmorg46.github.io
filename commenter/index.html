@@ -1384,12 +1384,6 @@ o@@
         return;
       }
 
-      if (!font) {
-        setStatus('Paste the .flf contents into the ' + (isSubheader ? 'Subheader' : 'Header') + ' block first.');
-        output.value = '';
-        return;
-      }
-
       try {
         const artLines = renderFiglet(inputText, font);
         const trimmed = isSubheader ? artLines : artLines.slice(1, 6);
