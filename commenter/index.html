@@ -53,6 +53,24 @@
     input[type="text"] {
       min-height: 42px;
     }
+    /* New styles for the checkbox layout */
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 42px;
+    }
+    .checkbox-container input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      cursor: pointer;
+    }
+    .checkbox-container label {
+      font-weight: normal;
+      padding: 0;
+      cursor: pointer;
+    }
     textarea {
       min-height: 280px;
       resize: vertical;
@@ -105,12 +123,13 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>Single Font FIGlet / Art Text Converter</h1>
+    <h1>FIGlet / Art Text Converter</h1>
     <p class="note">
       inspired by needing to fix the dumb Q and R in the Mono 9 font hosted at patorjk.com/software/taag
     </p>
 
     <div class="grid">
+
       <div class="row">
         <label for="field1">Text</label>
         <div>
@@ -120,7 +139,7 @@
       </div>
 
       <div class="row">
-        <label for="field2">Field 2</label>
+        <label for="field2">Delimiter</label>
         <div>
           <input id="field2" type="text" placeholder="Commenters" value="%" maxlength="2" />
           <div class="hint">Stata: *, LaTeX: %, Python: #, etc.</div>
@@ -128,7 +147,17 @@
       </div>
 
       <div class="row">
-        <label for="field3">Field 3</label>
+        <label>Font</label>
+        <div>
+          <div class="checkbox-container">
+            <input type="checkbox" id="fontCheckbox" />
+            <label for="fontCheckbox">Smaller Font</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="field3">Output</label>
         <div>
           <textarea id="field3" readonly placeholder="Output appears here"></textarea>
           <div class="hint">You can click the button or hit Enter!</div>
@@ -144,28 +173,21 @@
   </div>
 
   <!--
-    Paste the full contents of your FIGlet .flf file between the tags below.
-    Keep the raw text exactly as-is, including line breaks.
-
-    Example:
-    flf2a$ 6 5 20 15 11 0 24463 229
-    This is a comment line
-    This is another comment line
-    ... glyph data ...
+    HEADER FONT
   -->
-  <script id="figlet-font" type="text/plain">flf2a$ 8 7 16 -1 4 0 0
+  <script id="font-header" type="text/plain">flf2a$ 8 7 16 -1 4 0 0
 ===================================================
-  I modded this file:
-   % caca2tlf --half --utf8 "Monospace 9"
+ I modded this file:
+  % caca2tlf --half --utf8 "Monospace 9"
 ===================================================
-   $  $@ 
-   $  $@ 
-   $  $@ 
-   $  $@ 
-   $  $@ 
-   $  $@ 
-   $  $@ 
-   $  $@@
+  $  $@ 
+  $  $@ 
+  $  $@ 
+  $  $@ 
+  $  $@ 
+  $  $@ 
+  $  $@ 
+  $  $@@
        @ 
    ▄   @ 
    █   @ 
@@ -644,7 +666,7 @@
    █   @ 
     █  @ 
      █ @ 
-      ▀@ 
+     ▀ @ 
        @@
        @ 
   ▀█   @ 
@@ -892,7 +914,7 @@
  ▄▄▀   @ 
    █   @ 
    █   @ 
-    ▀▀ @ 
+   ▀▀  @ 
        @@
        @ 
    █   @ 
@@ -918,6 +940,324 @@
        @ 
        @ 
        @@</script>
+
+  <!--
+    SUBHEADER FONT
+  -->
+  <script id="font-subheader" type="text/plain">flf2a$ 3 3 7 0 7 0 64 0
+Font Author: ?
+
+More info on font here:
+
+https://web.archive.org/web/20120819044459/http://www.roysac.com/thedrawfonts-tdf.asp
+
+FIGFont created with: http://patorjk.com/figfont-editor
+$$@
+$$@
+$$@@
+┬@
+│@
+o@@
+@
+@
+@@
+─┼─┼─@
+─┼─┼─@
+     @@
+┌┼┐@
+└┼┐@
+└┼┘@@
+O┬@
+┌┘@
+┴O@@
+ ┬ @
+┌┼─@
+└┘ @@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+\│/@
+─ ─@
+/│\@@
+@
+@
+@@
+ @
+ @
+┘@@
+   @
+───@
+   @@
+ @
+ @
+o@@
+@
+@
+@@
+╔═╗@
+║◆║@
+╚═╝@@
+╗@
+║@
+╩@@ 
+╒═╗@
+╔═╝@
+╚═╛@@
+╒═╗@
+ ═╣@
+╘═╝@@
+╥ ╥@
+╚═╣@
+  ╨@@
+╔═╕@
+╚═╗@
+╘═╝@@
+╔═╕@
+╠═╗@
+╚═╝@@
+╒═╗@
+  ║@
+  ╨@@
+ ╔╗@
+╔╩╣@
+╚═╝@@
+╔═╗@
+╚═╣@
+  ╨@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+┌─┐@
+ ┌┘@
+ o @@
+┌─┐@
+│└┘@
+└──@@
+┌─┐@
+├─┤@
+┴ ┴@@
+┌┐ @
+├┴┐@
+└─┘@@
+┌─┐@
+│  @
+└─┘@@
+┌┬┐@
+ ││@
+─┴┘@@
+┌─┐@
+├┤ @
+└─┘@@
+┌─┐@
+├┤ @
+└  @@
+┌─┐@
+│ ┬@
+└─┘@@
+┬ ┬@
+├─┤@
+┴ ┴@@
+─┬─@
+ │ @
+─┴─@@
+  ┬@
+  │@
+└─┘@@
+┬┌─@
+├┴┐@
+┴ ┴@@
+┬  @
+│  @
+┴─┘@@
+┌┬┐@
+│││@
+┴ ┴@@
+┌┐┌@
+│││@
+┘└┘@@
+┌─┐@
+│ │@
+└─┘@@
+┌─┐@
+├─┘@
+┴  @@
+┌─┐ @
+│─┤@
+└─└@@
+┬─┐@
+├┬┘@
+┴└─@@
+┌─┐@
+└─┐@
+└─┘@@
+┌┬┐@
+ │ @
+ ┴ @@
+┬ ┬@
+│ │@
+└─┘@@
+┬ ┬@
+│ │@
+└┬┘@@
+┬ ┬@
+│││@
+└┴┘@@
+┐ ┌@
+┌─┘@
+┘ └@@
+┬ ┬@
+└┬┘@
+ ┴ @@
+┌─┐@
+┌─┘@
+└─┘@@
+┌─@
+│ @
+└─@@
+@
+@
+@@
+─┐@
+ │@
+─┘@@
+/\@
+  @
+  @@
+    @
+    @
+────@@
+@
+@
+@@
+┌─┐@
+├─┤@
+┴ ┴@@
+┌┐ @
+├┴┐@
+└─┘@@
+┌─┐@
+│  @
+└─┘@@
+┌┬┐@
+ ││@
+─┴┘@@
+┌─┐@
+├┤ @
+└─┘@@
+┌─┐@
+├┤ @
+└  @@
+┌─┐@
+│ ┬@
+└─┘@@
+┬ ┬@
+├─┤@
+┴ ┴@@
+─┬─@
+ │ @
+─┴─@@
+  ┬@
+  │@
+└─┘@@
+┬┌─@
+├┴┐@
+┴ ┴@@
+┬  @
+│  @
+┴─┘@@
+┌┬┐@
+│││@
+┴ ┴@@
+┌┐┌@
+│││@
+┘└┘@@
+┌─┐@
+│ │@
+└─┘@@
+┌─┐@
+├─┘@
+┴  @@
+┌─┐ @
+│─┤@
+└─└@@
+┬─┐@
+├┬┘@
+┴└─@@
+┌─┐@
+└─┐@
+└─┘@@
+┌┬┐@
+ │ @
+ ┴ @@
+┬ ┬@
+│ │@
+└─┘@@
+┬ ┬@
+│ │@
+└┬┘@@
+┬ ┬@
+│││@
+└┴┘@@
+┐ ┌@
+┌─┘@
+┘ └@@
+┬ ┬@
+└┬┘@
+ ┴ @@
+┌─┐@
+┌─┘@
+└─┘@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@
+@
+@
+@@</script>
 
   <script>
     function setStatus(message) {
@@ -1029,10 +1369,14 @@
       const inputText = document.getElementById('field1').value;
       const prefixChar = document.getElementById('field2').value ?? '';
       const output = document.getElementById('field3');
+      
+      // Determine which script ID to target based on the checkbox
+      const isSubheader = document.getElementById('fontCheckbox').checked;
+      const selectedFontId = isSubheader ? 'font-subheader' : 'font-header';
 
       let font;
       try {
-        const rawFont = document.getElementById('figlet-font').textContent;
+        const rawFont = document.getElementById(selectedFontId).textContent;
         font = parseFigletFont(rawFont);
       } catch (err) {
         setStatus(err.message || 'Could not parse the FIGlet font.');
@@ -1041,14 +1385,14 @@
       }
 
       if (!font) {
-        setStatus('Paste the .flf contents into the placeholder block first.');
+        setStatus('Paste the .flf contents into the ' + (isSubheader ? 'Subheader' : 'Header') + ' block first.');
         output.value = '';
         return;
       }
 
       try {
         const artLines = renderFiglet(inputText, font);
-        const trimmed = artLines.slice(1, 6);
+        const trimmed = isSubheader ? artLines : artLines.slice(1, 6);
         output.value = trimmed.map(line => prefixChar + line).join('\n');
         setStatus('No issues detected!');
       } catch (err) {
@@ -1058,6 +1402,7 @@
     }
 
     document.getElementById('convertBtn').addEventListener('click', convertNow);
+    document.getElementById('fontCheckbox').addEventListener('change', convertNow);
 
     document.addEventListener('keydown', (e) => {
       if (e.key !== 'Enter') return;
@@ -1071,7 +1416,6 @@
     window.addEventListener('DOMContentLoaded', () => {
       convertNow();
     });
-
 
   </script>
 </body>
