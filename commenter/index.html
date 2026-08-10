@@ -1375,6 +1375,14 @@ o@@
       const selectedFontId = isSubheader ? 'font-subheader' : 'font-header';
 
       let font;
+      try {
+        const rawFont = document.getElementById(selectedFontId).textContent;
+        font = parseFigletFont(rawFont);
+      } catch (err) {
+        setStatus(err.message || 'Could not parse the FIGlet font.');
+        output.value = '';
+        return;
+      }
 
       try {
         const artLines = renderFiglet(inputText, font);
