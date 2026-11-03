@@ -26,6 +26,8 @@
 \urlstyle{same}
 \usepackage[margin=1in]{geometry}  % this makes the size of the page consistent and sets the document-wide margin sizes
 
+\renewcommand{\thesection}{\Roman{section}} % use Roman numerals for main sections!
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Here's the packages that manage my bibliography
@@ -58,8 +60,8 @@
 }
 \makeatother
   
-  % this is a footnote without a number
-  \newcommand\blfootnote[1]{%
+% this is a footnote without a number
+\newcommand\blfootnote[1]{%
   \begingroup
   \renewcommand\thefootnote{}\footnote{#1}%
   \addtocounter{footnote}{-1}%
@@ -81,16 +83,16 @@
 \DeclareMathOperator*{\argmax}{argmax}  % this gives the nice under-argmin operator via \argmin_{thing under argmin}
 \DeclareMathOperator*{\argmin}{argmin}  % this gives the nice under-argmin operator via \argmin_{thing under argmin}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Here's the packages for nice tables & figures:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\usepackage{float}                          % this allows positioning of tables via [h!], etc.
-\usepackage{flafter}                        % this makes floats only ever show up after their mention
-\usepackage{threeparttable}                 % this makes for easy, consistently-formatted notes under tables that I love and appreciate dearly
-\usepackage{booktabs}                       % this enables topline, cmidrule, etc. in our tables
-\usepackage{arydshln}                       % this enables \hdashline
-\usepackage{caption}                        % this properly spaces table captions an appropriate distance from the tables
-\usepackage{subcaption}                     % this gives us good notes beneath figures using \subcaption or \subfigure
-\usepackage{adjustbox}                      % this allows us to put nice boxes around figures and tables using \adjustbox{} if we want to do so
+\usepackage{float}                  % this allows positioning of tables via [h!], etc.
+\usepackage{flafter}                % this makes floats only ever show up after their mention
+\usepackage{threeparttable}         % this makes for easy, consistently-formatted notes under tables that I love and appreciate dearly
+\usepackage{booktabs}               % this enables topline, cmidrule, etc. in our tables
+\usepackage{arydshln}               % this enables \hdashline
+\usepackage{caption}                % this properly spaces table captions an appropriate distance from the tables
+\usepackage{subcaption}             % this gives us good notes beneath figures using \subcaption or \subfigure
+\usepackage{adjustbox}              % this allows us to put nice boxes around figures and tables using \adjustbox{} if we want to do so
 
-\newcommand{\sym}[1]{#1} % this allows compiles from esttab without issues!
